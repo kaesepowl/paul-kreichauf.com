@@ -1,0 +1,17 @@
+{
+	"name": "website",
+	"version": "1.0.0",
+	"description": "the frontend for paul-kreichauf.com website",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "Paul Kreichauf",
+	"prettier": {
+		"useTabs": true,
+		"jsxBracketSameLine": true,
+		"tabWidth": 4,
+		"bracketSpacing": true
+	}
+}
