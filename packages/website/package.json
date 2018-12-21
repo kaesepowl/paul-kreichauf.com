@@ -13,5 +13,9 @@
 		"jsxBracketSameLine": true,
 		"tabWidth": 4,
 		"bracketSpacing": true
+	},
+	"dependencies": {
+		"@polymer/lit-element": "^0.6.5",
+		"reset-css": "^4.0.1"
 	}
 }
