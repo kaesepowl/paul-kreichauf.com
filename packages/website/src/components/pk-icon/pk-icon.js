@@ -12,7 +12,7 @@ class PKIcon extends LitElement {
 		return html`
 			<link
 				rel="stylesheet"
-				href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome-font-awesome.min.css"
+				href="/src/assets/line-awesome/css/line-awesome-font-awesome.min.css"
 			/>
 			<style>
 				:host {
