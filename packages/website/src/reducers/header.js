@@ -4,27 +4,33 @@ const INITIAL_STATE = {
 	items: [
 		{
 			caption: "Home",
-			path: "/home"
+			path: "/home",
+			icon: "home"
 		},
 		{
 			caption: "About",
-			path: "/about"
+			path: "/about",
+			icon: "user"
 		},
 		{
 			caption: "Resume",
-			path: "/resume"
+			path: "/resume",
+			icon: "file-text"
 		},
 		{
 			caption: "Portfolio",
-			path: "/portfolio"
+			path: "/portfolio",
+			icon: "briefcase"
 		},
 		{
 			caption: "Blog",
-			path: "/blog"
+			path: "/blog",
+			icon: "newspaper-o"
 		},
 		{
 			caption: "Contact",
-			path: "/contact"
+			path: "/contact",
+			icon: "envelope"
 		}
 	]
 };

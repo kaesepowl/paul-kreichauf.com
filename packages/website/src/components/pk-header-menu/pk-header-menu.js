@@ -23,9 +23,14 @@ class PKHeaderMenu extends PKConnectedElement {
 	}
 
 	renderItem(item) {
-		const { caption, path } = item;
+		const { caption, path, icon } = item;
 		return html`
-			<pk-menu-item caption=${caption} path=${path}></pk-menu-item>
+			<pk-menu-item
+				caption=${caption}
+				path=${path}
+				icon=${icon}
+				?hideCaption=${true}
+			></pk-menu-item>
 		`;
 	}
 
@@ -44,6 +49,7 @@ class PKHeaderMenu extends PKConnectedElement {
 					visibility: hidden;
 					text-align: center;
 					transition: all 0.3s ease 0s;
+					background-color: #d0d0d0;
 				}
 
 				:host([open]) {
