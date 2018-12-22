@@ -8,4 +8,8 @@ export class PKConnectedElement extends connect(store)(LitElement) {
 	getState() {
 		return store.getState();
 	}
+
+	dispatchAction(action) {
+		store.dispatch(action);
+	}
 }

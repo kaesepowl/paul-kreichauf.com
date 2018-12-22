@@ -11,11 +11,6 @@ class PKLink extends LitElement {
 		super();
 		//
 		this.path = "/";
-		//
-		this.addEventListener("click", async e => {
-			e.preventDefault();
-			console.log("KLICK");
-		});
 	}
 
 	render() {

@@ -1,8 +1,16 @@
 {
 	"entrypoint": "index.html",
 	"shell": "src/components/pk-app.js",
-	"sources": ["node_modules/line-awesome/**"],
+	"sources": [
+		"src/assets/**",
+		"node_modules/line-awesome/**",
+		"node_modules/reset-css/reset.css"
+	],
 	"extraDependencies": ["node_modules/@webcomponents/webcomponentsjs/**"],
+	"lint": {
+		"rules": ["polymer-3"],
+		"ignoreWarnings": ["could-not-resolve-reference"]
+	},
 	"builds": [
 		{
 			"name": "esm-bundled",
