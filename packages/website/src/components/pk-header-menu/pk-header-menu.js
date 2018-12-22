@@ -7,12 +7,15 @@ import "../pk-menu-item/pk-menu-item";
 //
 class PKHeaderMenu extends PKConnectedElement {
 	static get properties() {
-		return {};
+		return {
+			open: { type: Boolean }
+		};
 	}
 
 	constructor() {
 		super();
 		this.items = [];
+		this.open = false;
 	}
 
 	stateChanged(state) {
@@ -20,18 +23,32 @@ class PKHeaderMenu extends PKConnectedElement {
 	}
 
 	renderItem(item) {
-		const { caption } = item;
+		const { caption, path } = item;
 		return html`
-			<pk-menu-item caption=${caption}></pk-menu-item>
+			<pk-menu-item caption=${caption} path=${path}></pk-menu-item>
 		`;
 	}
 
 	render() {
-		const { items } = this;
+		const { items, open } = this;
 		return html`
 			<style>
 				:host {
 					display: block;
+					position: absolute;
+					left: 0;
+					top: 50px;
+					margin-top: 0;
+					width: 100%;
+					opacity: 0;
+					visibility: hidden;
+					text-align: center;
+					transition: all 0.3s ease 0s;
+				}
+
+				:host([open]) {
+					opacity: 1;
+					visibility: visible;
 				}
 			</style>
 			<pk-menu> ${items.map(item => this.renderItem(item))} </pk-menu>

@@ -3,22 +3,28 @@ import { HEADER_MENU_ITEM_ADD } from "../actions/header";
 const INITIAL_STATE = {
 	items: [
 		{
-			caption: "Home"
+			caption: "Home",
+			path: "/home"
 		},
 		{
-			caption: "About"
+			caption: "About",
+			path: "/about"
 		},
 		{
-			caption: "Resume"
+			caption: "Resume",
+			path: "/resume"
 		},
 		{
-			caption: "Portfolio"
+			caption: "Portfolio",
+			path: "/portfolio"
 		},
 		{
-			caption: "Blog"
+			caption: "Blog",
+			path: "/blog"
 		},
 		{
-			caption: "Contact"
+			caption: "Contact",
+			path: "/contact"
 		}
 	]
 };

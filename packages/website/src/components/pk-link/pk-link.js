@@ -2,11 +2,16 @@ import { LitElement, html } from "@polymer/lit-element";
 //
 class PKLink extends LitElement {
 	static get properties() {
-		return {};
+		return {
+			path: { type: String }
+		};
 	}
 
 	constructor() {
 		super();
+		//
+		this.path = "/";
+		//
 		this.addEventListener("click", async e => {
 			e.preventDefault();
 			console.log("KLICK");
@@ -14,13 +19,14 @@ class PKLink extends LitElement {
 	}
 
 	render() {
+		const { path } = this;
 		return html`
 			<style>
 				:host {
 					display: block;
 				}
 			</style>
-			<a href="/"> <slot></slot> </a>
+			<a href=${path}> <slot></slot> </a>
 		`;
 	}
 }

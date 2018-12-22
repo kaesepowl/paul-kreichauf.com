@@ -1,21 +1,24 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
+import "../pk-link/pk-link";
+//
 class PKMenuItem extends LitElement {
 	static get properties() {
 		return {
-			caption: { type: String }
+			caption: { type: String },
+			path: { type: String }
 		};
 	}
 
 	render() {
-		const { caption } = this;
+		const { caption, path } = this;
 		return html`
 			<style>
 				:host {
 					display: block;
 				}
 			</style>
-			<div>${caption}</div>
+			<pk-link path=${path}> <div>${caption}</div> </pk-link>
 		`;
 	}
 }
