@@ -1,10 +1,6 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
-import { store } from "../store";
-//
-import "./pk-header/pk-header";
-//
-class PKApp extends LitElement {
+class PKMenu extends LitElement {
 	static get properties() {
 		return {};
 	}
@@ -16,9 +12,9 @@ class PKApp extends LitElement {
 					display: block;
 				}
 			</style>
-			<div><pk-header /></div>
+			<slot></slot>
 		`;
 	}
 }
-
-window.customElements.define("pk-app", PKApp);
+//
+window.customElements.define("pk-menu", PKMenu);
