@@ -4,32 +4,32 @@ const INITIAL_STATE = {
 	items: [
 		{
 			caption: "Home",
-			path: "/home",
+			page: "home",
 			icon: "home"
 		},
 		{
 			caption: "About",
-			path: "/about",
+			page: "about",
 			icon: "user"
 		},
 		{
 			caption: "Resume",
-			path: "/resume",
+			page: "resume",
 			icon: "file-text"
 		},
 		{
 			caption: "Portfolio",
-			path: "/portfolio",
+			page: "portfolio",
 			icon: "briefcase"
 		},
 		{
 			caption: "Blog",
-			path: "/blog",
+			page: "blog",
 			icon: "newspaper-o"
 		},
 		{
 			caption: "Contact",
-			path: "/contact",
+			page: "contact",
 			icon: "envelope"
 		}
 	]

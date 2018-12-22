@@ -8,6 +8,7 @@ class PKMenuItem extends LitElement {
 		return {
 			caption: { type: String },
 			hideCaption: { type: Boolean },
+			active: { type: Boolean },
 			path: { type: String },
 			icon: { type: String }
 		};
@@ -17,6 +18,7 @@ class PKMenuItem extends LitElement {
 		super();
 		this.caption = "";
 		this.path = "/";
+		this.active = false;
 		this.icon = null;
 		this.hideCaption = false;
 	}
@@ -57,9 +59,21 @@ class PKMenuItem extends LitElement {
 					text-decoration: none;
 					white-space: nowrap;
 					transition: 0.5s;
+					box-sizing: border-box;
 				}
+				:host([active]) {
+					background-color: #d0d0d0;
+					border-left: 3px solid #0078d4;
+				}
+
 				pk-icon {
 					margin-top: 12px;
+				}
+				@media (max-width: 1023px) {
+					:host([active]) {
+						border-bottom: 3px solid #0078d4;
+						border-left: 0;
+					}
 				}
 			</style>
 			<pk-link path=${path}>

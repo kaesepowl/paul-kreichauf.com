@@ -4,7 +4,8 @@
 	"sources": [
 		"src/assets/**",
 		"node_modules/line-awesome/**",
-		"node_modules/reset-css/reset.css"
+		"node_modules/reset-css/reset.css",
+		"node_modules/animate.css/**"
 	],
 	"extraDependencies": ["node_modules/@webcomponents/webcomponentsjs/**"],
 	"lint": {

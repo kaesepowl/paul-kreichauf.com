@@ -12,11 +12,11 @@ export const navigate = path => dispatch => {
 
 const loadPage = page => dispatch => {
 	switch (page) {
-		case "home":
-			import("../components/pk-page-home/pk-page-home.js");
-			break;
 		case "about":
 			import("../components/pk-page-about/pk-page-about.js");
+			break;
+		case "resume":
+			import("../components/pk-page-resume/pk-page-resume.js");
 			break;
 		default:
 		// page = "view404";

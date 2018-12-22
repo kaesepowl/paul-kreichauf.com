@@ -4,7 +4,7 @@ import { PKPage } from "../pk-page/pk-page";
 import "../pk-content/pk-content";
 import "../pk-animate/pk-animate";
 //
-class PKPageAbout extends PKPage {
+class PkPageResume extends PKPage {
 	static get properties() {
 		return {};
 	}
@@ -16,11 +16,9 @@ class PKPageAbout extends PKPage {
 					display: block;
 				}
 			</style>
-			<pk-animate>
-				<pk-content> <div>PAGE-ABOUT</div> </pk-content>
-			</pk-animate>
+			<pk-animate> <pk-content>PAGE-RESUME</pk-content> </pk-animate>
 		`;
 	}
 }
 //
-window.customElements.define("pk-page-about", PKPageAbout);
+window.customElements.define("pk-page-resume", PkPageResume);

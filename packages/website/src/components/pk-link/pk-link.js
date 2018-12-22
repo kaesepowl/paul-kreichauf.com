@@ -19,6 +19,10 @@ class PKLink extends LitElement {
 			<style>
 				:host {
 					display: block;
+					box-sizing: border-box;
+				}
+				a {
+					box-sizing: border-box;
 				}
 			</style>
 			<a href=${path}> <slot></slot> </a>

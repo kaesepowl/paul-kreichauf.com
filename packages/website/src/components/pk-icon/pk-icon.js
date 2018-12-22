@@ -18,6 +18,7 @@ class PKIcon extends LitElement {
 				:host {
 					display: block;
 					color: #444;
+					box-sizing: border-box;
 				}
 			</style>
 			<i class="fa fa-${type}"></i>

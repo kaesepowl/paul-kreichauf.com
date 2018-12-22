@@ -1,36 +1,43 @@
 import { html } from "@polymer/lit-element";
 import { PKConnectedElement } from "../pk-connected-element/pk-connected-element";
-import { getHeaderMenuItems } from "../../selectors/header";
 //
 import "../pk-menu/pk-menu";
 import "../pk-menu-item/pk-menu-item";
+import { getAppPage } from "../../selectors/app";
+import { getHeaderMenuItems } from "../../selectors/header";
 import { getNavigationOpen } from "../../selectors/navigation";
 //
 class PKHeaderMenu extends PKConnectedElement {
 	static get properties() {
 		return {
-			open: { type: Boolean, reflect: true }
+			open: { type: Boolean, reflect: true },
+			activePage: { type: Boolean },
+			items: { type: Array }
 		};
 	}
 
 	constructor() {
 		super();
 		this.items = [];
+		this.activePage = "home";
 		this.open = false;
 	}
 
 	stateChanged(state) {
 		this.items = getHeaderMenuItems(state);
+		this.activePage = getAppPage(state);
 		this.open = getNavigationOpen(state);
 	}
 
 	renderItem(item) {
-		const { caption, path, icon } = item;
+		const { caption, page, icon } = item;
+		const { activePage } = this;
 		return html`
 			<pk-menu-item
 				caption=${caption}
-				path=${path}
+				path=${`/${page}`}
 				icon=${icon}
+				?active=${page === activePage}
 				?hideCaption=${true}
 			></pk-menu-item>
 		`;
@@ -40,9 +47,12 @@ class PKHeaderMenu extends PKConnectedElement {
 		const { items } = this;
 		return html`
 			<style>
+				:host {
+					display: block;
+					box-sizing: border-box;
+				}
 				@media (max-width: 1023px) {
 					:host {
-						display: block;
 						position: absolute;
 						left: 0;
 						top: 50px;

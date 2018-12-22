@@ -28,7 +28,7 @@ class PKContent extends LitElement {
 					}
 				}
 			</style>
-			<div><slot></slot></div>
+			<slot></slot>
 		`;
 	}
 }

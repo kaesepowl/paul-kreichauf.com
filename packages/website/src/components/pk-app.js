@@ -4,6 +4,8 @@ import { installRouter } from "pwa-helpers/router";
 //
 import "./pk-header/pk-header";
 import "./pk-icon/pk-icon";
+import "./pk-page-home/pk-page-home";
+import "./pk-page-resume/pk-page-resume";
 import { PKConnectedElement } from "./pk-connected-element/pk-connected-element";
 import { navigate } from "../actions/app";
 import { getAppPage } from "../selectors/app";
@@ -33,15 +35,35 @@ class PKApp extends PKConnectedElement {
 					display: block;
 				}
 				.page {
-					display: none;
+					position: absolute;
+					left: 0;
+					width: calc(100% - 50px);
+					height: 100%;
+					z-index: 9;
+					opacity: 0;
+				}
+
+				.page[active] {
+					z-index: 10;
+				}
+
+				pk-page-home.page,
+				pk-page-home.page[active] {
+					z-index: initial;
+				}
+				.page[visible] {
+					opacity: 1;
+				}
+
+				div {
 					position: fixed;
 					left: 50px;
 					width: calc(100% - 50px);
 					height: 100%;
+					-moz-transition: 0.5s;
+					-o-transition: 0.5s;
+					-webkit-transition: 0.5s;
 					transition: 0.5s;
-				}
-				.page[active] {
-					display: block;
 				}
 
 				@media (max-width: 1023px) {
@@ -49,17 +71,29 @@ class PKApp extends PKConnectedElement {
 						left: 0;
 						width: 100%;
 					}
+					div {
+						left: 0;
+						width: 100%;
+					}
 				}
 			</style>
 			<pk-header></pk-header>
-			<pk-page-home
-				class="page"
-				?active="${page === "home"}"
-			></pk-page-home>
-			<pk-page-about
-				class="page"
-				?active="${page === "about"}"
-			></pk-page-about>
+			<div>
+				<pk-page-home
+					class="page"
+					active
+					visible
+					?empty=${page !== "home"}
+				></pk-page-home>
+				<pk-page-about
+					class="page"
+					?active="${page === "about"}"
+				></pk-page-about>
+				<pk-page-resume
+					class="page"
+					?active="${page === "resume"}"
+				></pk-page-resume>
+			</div>
 		`;
 	}
 }
