@@ -1,8 +1,13 @@
+import { hideNavigation } from "./navigation.js";
+
 export const APP_UPDATE_PAGE = "APP_UPDATE_PAGE";
 
 export const navigate = path => dispatch => {
 	const page = path === "/" ? "home" : path.slice(1);
+	//
 	dispatch(loadPage(page));
+	//
+	dispatch(hideNavigation());
 };
 
 const loadPage = page => dispatch => {

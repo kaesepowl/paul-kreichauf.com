@@ -25,11 +25,18 @@ class PKHeaderLogo extends LitElement {
 				:host {
 					display: block;
 					cursor: pointer;
+					padding: 10px 0 10px 8px;
+					position: relative;
+					margin-bottom: 1px;
+				}
+				@media (max-width: 1023px) {
+					:host {
+						padding: 7px 0 7px 8px;
+					}
 				}
 			</style>
 			<pk-link>
-				<pk-avatar name=${avatar}></pk-avatar>
-				<span>${name}</span>
+				<pk-avatar name=${avatar} caption=${name}></pk-avatar>
 			</pk-link>
 		`;
 	}

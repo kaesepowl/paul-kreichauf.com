@@ -4,11 +4,12 @@ import { getHeaderMenuItems } from "../../selectors/header";
 //
 import "../pk-menu/pk-menu";
 import "../pk-menu-item/pk-menu-item";
+import { getNavigationOpen } from "../../selectors/navigation";
 //
 class PKHeaderMenu extends PKConnectedElement {
 	static get properties() {
 		return {
-			open: { type: Boolean }
+			open: { type: Boolean, reflect: true }
 		};
 	}
 
@@ -20,6 +21,7 @@ class PKHeaderMenu extends PKConnectedElement {
 
 	stateChanged(state) {
 		this.items = getHeaderMenuItems(state);
+		this.open = getNavigationOpen(state);
 	}
 
 	renderItem(item) {
@@ -35,26 +37,28 @@ class PKHeaderMenu extends PKConnectedElement {
 	}
 
 	render() {
-		const { items, open } = this;
+		const { items } = this;
 		return html`
 			<style>
-				:host {
-					display: block;
-					position: absolute;
-					left: 0;
-					top: 50px;
-					margin-top: 0;
-					width: 100%;
-					opacity: 0;
-					visibility: hidden;
-					text-align: center;
-					transition: all 0.3s ease 0s;
-					background-color: #d0d0d0;
-				}
+				@media (max-width: 1023px) {
+					:host {
+						display: block;
+						position: absolute;
+						left: 0;
+						top: 50px;
+						margin-top: 0;
+						width: 100%;
+						opacity: 0;
+						visibility: hidden;
+						text-align: center;
+						transition: all 0.3s ease 0s;
+						background-color: #d0d0d0;
+					}
 
-				:host([open]) {
-					opacity: 1;
-					visibility: visible;
+					:host([open]) {
+						opacity: 1;
+						visibility: visible;
+					}
 				}
 			</style>
 			<pk-menu> ${items.map(item => this.renderItem(item))} </pk-menu>

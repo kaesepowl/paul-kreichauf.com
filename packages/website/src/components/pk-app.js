@@ -34,13 +34,24 @@ class PKApp extends PKConnectedElement {
 				}
 				.page {
 					display: none;
+					position: fixed;
+					left: 50px;
+					width: calc(100% - 50px);
+					height: 100%;
+					transition: 0.5s;
 				}
 				.page[active] {
 					display: block;
 				}
+
+				@media (max-width: 1023px) {
+					.page {
+						left: 0;
+						width: 100%;
+					}
+				}
 			</style>
 			<pk-header></pk-header>
-			<pk-icon></pk-icon>
 			<pk-page-home
 				class="page"
 				?active="${page === "home"}"

@@ -17,26 +17,34 @@ class PKHeader extends LitElement {
 		this.open = false;
 	}
 
-	toggleMenu(e) {
-		this.open = !this.open;
-	}
-
 	render() {
 		const { open } = this;
 		return html`
 			<style>
 				:host {
 					display: block;
+					position: fixed;
+					top: 0;
+					left: 0;
+					width: 50px;
+					height: 100%;
+					z-index: 2;
+					transition: 0.5s;
+					background-color: #eee;
+				}
+				@media (max-width: 1023px) {
+					:host {
+						top: 0;
+						left: 0;
+						height: 50px;
+						width: 100%;
+						border: none !important;
+					}
 				}
 			</style>
-			<div>
-				<pk-header-logo></pk-header-logo>
-				<pk-header-menu ?open=${open}></pk-header-menu>
-				<pk-header-button
-					@click=${this.toggleMenu}
-					?open=${open}
-				></pk-header-button>
-			</div>
+			<pk-header-logo></pk-header-logo>
+			<pk-header-menu></pk-header-menu>
+			<pk-header-button></pk-header-button>
 		`;
 	}
 }
