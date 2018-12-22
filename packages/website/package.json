@@ -4,7 +4,8 @@
 	"description": "the frontend for paul-kreichauf.com website",
 	"main": "index.js",
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"start": "polymer serve",
+		"test:unit": "polymer test --module-resolution=node --npm"
 	},
 	"keywords": [],
 	"author": "Paul Kreichauf",
@@ -16,6 +17,13 @@
 	},
 	"dependencies": {
 		"@polymer/lit-element": "^0.6.5",
-		"reset-css": "^4.0.1"
+		"@webcomponents/webcomponentsjs": "^2.2.1"
+	},
+	"devDependencies": {
+		"reset-css": "^4.0.1",
+		"wct-mocha": "^1.0.0",
+		"chai": "^4.2.0",
+		"mocha": "^5.2.0",
+		"polymer-cli": "^1.9.3"
 	}
 }

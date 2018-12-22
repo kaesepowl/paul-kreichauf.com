@@ -1,0 +1,13 @@
+{
+	"suites": ["./test/unit/index.html"],
+	"skipSeleniumInstall": true,
+	"verbose": false,
+	"plugins": {
+		"local": {
+			"browsers": ["chrome"],
+			"browserOptions": {
+				"chrome": ["--headless", "--disable-gpu"]
+			}
+		}
+	}
+}
