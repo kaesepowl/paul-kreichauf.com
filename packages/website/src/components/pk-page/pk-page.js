@@ -1,5 +1,10 @@
+import { html } from "@polymer/lit-element";
+//
 import { PKConnectedElement } from "../pk-connected-element/pk-connected-element";
-
+//
+import "../pk-animate/pk-animate";
+import "../pk-content/pk-content";
+import "../pk-content-container/pk-content-container";
 export class PKPage extends PKConnectedElement {
 	static get properties() {
 		return {
@@ -30,5 +35,20 @@ export class PKPage extends PKConnectedElement {
 				}
 			}
 		}
+	}
+
+	wrapContent(content) {
+		return html`
+			<style>
+				:host {
+					display: block;
+				}
+			</style>
+			<pk-animate>
+				<pk-content>
+					<pk-content-container>${content}</pk-content-container>
+				</pk-content>
+			</pk-animate>
+		`;
 	}
 }

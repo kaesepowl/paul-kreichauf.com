@@ -1,8 +1,11 @@
 import { html } from "@polymer/lit-element";
 import { PKPage } from "../pk-page/pk-page";
 //
-import "../pk-content/pk-content";
-import "../pk-animate/pk-animate";
+import sharedStyle from "../../styles/shared";
+//
+import "../pk-content-title/pk-content-title";
+import "../pk-content-desc/pk-content-desc";
+import "../pk-content-group/pk-content-group";
 //
 class PkPageResume extends PKPage {
 	static get properties() {
@@ -10,14 +13,37 @@ class PkPageResume extends PKPage {
 	}
 
 	render() {
-		return html`
+		const content = html`
+			${sharedStyle}
 			<style>
-				:host {
-					display: block;
+				pk-content-container {
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					grid-column-gap: 30px;
+					grid-row-gap: 0px;
+					justify-items: stretch;
+					align-items: stretch;
+					grid-template-areas: "Title Title" "Desc Desc";
+				}
+				pk-content-title {
+					grid-area: Title;
+				}
+				pk-content-desc {
+					grid-area: Desc;
 				}
 			</style>
-			<pk-animate> <pk-content>PAGE-RESUME</pk-content> </pk-animate>
+			<pk-content-title>Resume</pk-content-title>
+			<pk-content-desc>
+				Over <b>10 Years</b> of Experience
+			</pk-content-desc>
+			<pk-content-group title="Education"> 1 </pk-content-group>
+			<pk-content-group title="Experience"> 2 </pk-content-group>
+			<pk-content-group title="Coding Skills"> 1 </pk-content-group>
+			<pk-content-group title="Infrastructur Skills">
+				1
+			</pk-content-group>
 		`;
+		return this.wrapContent(content);
 	}
 }
 //
