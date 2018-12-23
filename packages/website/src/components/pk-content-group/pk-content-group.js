@@ -18,6 +18,7 @@ class PkContentGroup extends LitElement {
 					display: block;
 					box-sizing: border-box;
 					margin-top: 50px;
+					line-height: 1.5em;
 				}
 				.title {
 					font-size: 16px;

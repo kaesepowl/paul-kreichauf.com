@@ -51,7 +51,7 @@ class PKCard extends LitElement {
 				}
 				.desc {
 					text-align: justify;
-					font-size: 13px;
+					font-size: 15px;
 
 					/* DEV */
 					color: #666;

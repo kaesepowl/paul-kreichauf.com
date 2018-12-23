@@ -21,6 +21,12 @@ class PkContentTitle extends LitElement {
 					/* THEME LIGHT */
 					color: rgba(0, 0, 0, 0.1);
 				}
+
+				@media (max-width: 1023px) {
+					:host {
+						margin-top: 15px;
+					}
+				}
 			</style>
 			<slot></slot>
 		`;

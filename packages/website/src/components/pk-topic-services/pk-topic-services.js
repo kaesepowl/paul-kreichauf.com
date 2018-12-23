@@ -15,13 +15,60 @@ class PKTopicServices extends LitElement {
 					box-sizing: border-box;
 				}
 				:host {
-					display: block;
 					box-sizing: border-box;
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					grid-column-gap: 30px;
+					grid-row-gap: 0px;
+					justify-items: stretch;
+					align-items: stretch;
+				}
+
+				@media (max-width: 768px) {
+					:host {
+						grid-template-columns: 1fr 1fr;
+					}
 				}
 			</style>
 			<pk-card>
-				<pk-icon type="windows" slot="icons"></pk-icon>
-				<span slot="name">Web Development</span>
+				<pk-icon type="code" slot="icons"></pk-icon>
+				<span slot="name">Development</span>
+				<span slot="desc"
+					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.</span
+				>
+			</pk-card>
+			<pk-card>
+				<pk-icon type="rotate-right" slot="icons"></pk-icon>
+				<span slot="name">Agile</span>
+				<span slot="desc"
+					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.</span
+				>
+			</pk-card>
+			<pk-card>
+				<pk-icon type="cloud" slot="icons"></pk-icon>
+				<span slot="name">Cloud Architecture</span>
+				<span slot="desc"
+					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.</span
+				>
+			</pk-card>
+			<pk-card>
+				<pk-icon type="futbol-o" slot="icons"></pk-icon>
+				<span slot="name">Foosball&reg; Training</span>
+				<span slot="desc"
+					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+					sed do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.</span
+				>
+			</pk-card>
+			<pk-card>
+				<pk-icon type="music" slot="icons"></pk-icon>
+				<span slot="name">DJing</span>
 				<span slot="desc"
 					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
 					sed do eiusmod tempor incididunt ut labore et dolore magna

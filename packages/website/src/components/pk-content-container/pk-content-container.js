@@ -13,6 +13,11 @@ class PKContentContainer extends LitElement {
 					box-sizing: border-box;
 					padding: 50px;
 				}
+				@media (max-width: 1023px) {
+					:host {
+						padding: 10px 16px 16px 16px;
+					}
+				}
 			</style>
 			<slot></slot>
 		`;
