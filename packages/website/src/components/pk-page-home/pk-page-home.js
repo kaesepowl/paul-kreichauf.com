@@ -12,16 +12,24 @@ class PKPageHome extends PKPage {
 		return html`
 			<style>
 				:host {
-					display: block;
+					position: absolute;
+					top: 0;
+					left: 0;
 					width: 100%;
+					height: 100%;
 					background-size: cover;
-					background: url(/src/assets/images/dev.jpeg);
+					background: url(/src/assets/images/dev.jpg);
 					background-repeat: no-repeat;
 					-moz-transition: 0.5s;
 					-o-transition: 0.5s;
 					-webkit-transition: 0.5s;
 					transition: 0.5s;
 				}
+
+				@media (max-width: 1600px) and (min-width: 1024px) {
+					background-position: 75% 10%;
+				}
+
 				.bg {
 					background: rgba(0, 0, 0, 0.6);
 					position: absolute;

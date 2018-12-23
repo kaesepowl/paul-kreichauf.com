@@ -5,7 +5,6 @@ import { installRouter } from "pwa-helpers/router";
 import "./pk-header/pk-header";
 import "./pk-icon/pk-icon";
 import "./pk-page-home/pk-page-home";
-import "./pk-page-resume/pk-page-resume";
 import { PKConnectedElement } from "./pk-connected-element/pk-connected-element";
 import { navigate } from "../actions/app";
 import { getAppPage } from "../selectors/app";
@@ -35,27 +34,21 @@ class PKApp extends PKConnectedElement {
 					display: block;
 				}
 				.page {
+					opacity: 0;
 					position: absolute;
-					left: 0;
-					width: calc(100% - 50px);
+					width: 100%;
 					height: 100%;
 					z-index: 9;
-					opacity: 0;
 				}
 
 				.page[active] {
 					z-index: 10;
 				}
-
-				pk-page-home.page,
-				pk-page-home.page[active] {
-					z-index: initial;
-				}
 				.page[visible] {
 					opacity: 1;
 				}
 
-				div {
+				.pages {
 					position: fixed;
 					left: 50px;
 					width: calc(100% - 50px);
@@ -66,33 +59,49 @@ class PKApp extends PKConnectedElement {
 					transition: 0.5s;
 				}
 
+				.subpages {
+					position: absolute;
+					margin: 30px auto;
+					left: 0;
+					right: 0;
+					width: calc(100% - 60px);
+					height: calc(100% - 60px);
+					max-width: 1240px;
+				}
+
 				@media (max-width: 1023px) {
 					.page {
+						height: 100%;
+						width: 100%;
+					}
+					.pages {
 						left: 0;
 						width: 100%;
 					}
-					div {
-						left: 0;
+					.subpages {
+						margin: 50px 0 0 0;
+						height: calc(100% - 50px);
 						width: 100%;
 					}
 				}
 			</style>
 			<pk-header></pk-header>
-			<div>
+			<div class="pages">
 				<pk-page-home
-					class="page"
 					active
 					visible
 					?empty=${page !== "home"}
 				></pk-page-home>
-				<pk-page-about
-					class="page"
-					?active="${page === "about"}"
-				></pk-page-about>
-				<pk-page-resume
-					class="page"
-					?active="${page === "resume"}"
-				></pk-page-resume>
+				<div class="subpages">
+					<pk-page-about
+						class="page"
+						?active="${page === "about"}"
+					></pk-page-about>
+					<pk-page-resume
+						class="page"
+						?active="${page === "resume"}"
+					></pk-page-resume>
+				</div>
 			</div>
 		`;
 	}
