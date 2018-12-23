@@ -15,8 +15,11 @@ class PKIcon extends LitElement {
 				href="/src/assets/line-awesome/css/line-awesome-font-awesome.min.css"
 			/>
 			<style>
+				* {
+					box-sizing: border-box;
+				}
 				:host {
-					display: block;
+					display: inline-block;
 					color: #444;
 					box-sizing: border-box;
 				}

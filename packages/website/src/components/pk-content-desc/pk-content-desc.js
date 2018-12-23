@@ -1,0 +1,32 @@
+import { LitElement, html } from "@polymer/lit-element";
+//
+class PkContentDesc extends LitElement {
+	static get properties() {
+		return {};
+	}
+
+	render() {
+		return html`
+			<style>
+				:host {
+					display: block;
+					box-sizing: border-box;
+
+					font-size: 19px;
+					text-align: center;
+					line-height: 24px;
+					margin-top: -43px;
+
+					/* THEME LIGHT */
+					color: #666;
+				}
+				::slotted(b) {
+					color: #0078d4;
+				}
+			</style>
+			<slot></slot>
+		`;
+	}
+}
+//
+window.customElements.define("pk-content-desc", PkContentDesc);
