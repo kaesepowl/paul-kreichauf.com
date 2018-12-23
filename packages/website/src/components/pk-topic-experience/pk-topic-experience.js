@@ -4,7 +4,7 @@ import sharedStyle from "../../styles/shared";
 //
 import "../pk-card/pk-card";
 //
-class PKTopicEducation extends LitElement {
+class PKTopicExperience extends LitElement {
 	static get properties() {
 		return {};
 	}
@@ -43,4 +43,4 @@ class PKTopicEducation extends LitElement {
 	}
 }
 //
-window.customElements.define("pk-topic-education", PKTopicEducation);
+window.customElements.define("pk-topic-experience", PKTopicExperience);
