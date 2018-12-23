@@ -17,7 +17,16 @@ class PKPageAbout extends PKPage {
 				}
 			</style>
 			<pk-animate>
-				<pk-content> <div>PAGE-ABOUT</div> </pk-content>
+				<pk-content>
+					${
+						new Array(1000).fill(0).map(
+							(v, i) =>
+								html`
+									Zeile ${i + 1} <br />
+								`
+						)
+					}
+				</pk-content>
 			</pk-animate>
 		`;
 	}

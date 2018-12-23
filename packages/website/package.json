@@ -24,7 +24,8 @@
 		"pwa-helpers": "^0.9.0",
 		"redux": "^4.0.1",
 		"redux-thunk": "^2.3.0",
-		"reset-css": "^4.0.1"
+		"reset-css": "^4.0.1",
+		"simplebar": "^3.1.1"
 	},
 	"devDependencies": {
 		"chai": "^4.2.0",
