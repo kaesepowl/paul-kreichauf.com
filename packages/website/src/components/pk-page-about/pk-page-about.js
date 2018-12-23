@@ -2,12 +2,14 @@ import { html } from "@polymer/lit-element";
 import { PKPage } from "../pk-page/pk-page";
 //
 import "../pk-content/pk-content";
+import "../pk-content-group/pk-content-group";
 import "../pk-content-container/pk-content-container";
 import "../pk-content-button/pk-content-button";
 import "../pk-content-button-group/pk-content-button-group";
 import "../pk-content-desc/pk-content-desc";
 import "../pk-content-title/pk-content-title";
 import "../pk-animate/pk-animate";
+import "../pk-topic-services/pk-topic-services";
 //
 class PKPageAbout extends PKPage {
 	static get properties() {
@@ -53,6 +55,10 @@ class PKPageAbout extends PKPage {
 								hideCaption
 							></pk-content-button>
 						</pk-content-button-group>
+						<pk-content-group title="Services">
+							<pk-topic-services></pk-topic-services>
+						</pk-content-group>
+						<br /><br /><br /><br /><br /><br /><br /><br />
 						${
 							new Array(1000).fill(0).map(
 								(v, i) =>
