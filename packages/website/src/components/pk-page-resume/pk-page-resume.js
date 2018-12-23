@@ -6,6 +6,7 @@ import sharedStyle from "../../styles/shared";
 import "../pk-content-title/pk-content-title";
 import "../pk-content-desc/pk-content-desc";
 import "../pk-content-group/pk-content-group";
+import "../pk-topic-education/pk-topic-education";
 //
 class PkPageResume extends PKPage {
 	static get properties() {
@@ -32,11 +33,11 @@ class PkPageResume extends PKPage {
 					grid-area: Desc;
 				}
 			</style>
-			<pk-content-title>Resume</pk-content-title>
-			<pk-content-desc>
-				Over <b>10 Years</b> of Experience
-			</pk-content-desc>
-			<pk-content-group title="Education"> 1 </pk-content-group>
+			<pk-content-title>RESUME</pk-content-title>
+			<pk-content-desc>Over <b>10 Years</b> of Experience</pk-content-desc>
+			<pk-content-group title="Education">
+				<pk-topic-education></pk-topic-education>
+			</pk-content-group>
 			<pk-content-group title="Experience"> 2 </pk-content-group>
 			<pk-content-group title="Coding Skills"> 1 </pk-content-group>
 			<pk-content-group title="Infrastructur Skills">

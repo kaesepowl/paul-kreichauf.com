@@ -22,6 +22,7 @@ class PkContentDesc extends LitElement {
 				}
 				::slotted(b) {
 					color: #0078d4;
+					font-weight: 700;
 				}
 			</style>
 			<slot></slot>

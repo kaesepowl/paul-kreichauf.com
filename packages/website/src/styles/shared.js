@@ -2,10 +2,12 @@ import { html } from "@polymer/lit-element";
 
 export default html`
 	<style>
-		* {
-			font-weight: 400;
+		:host {
+			display: block;
+		}
+		:host * {
 			box-sizing: border-box;
-			text-size-adjust: 100;
+			text-size-adjust: 100%;
 			line-height: 1.5em;
 		}
 	</style>
