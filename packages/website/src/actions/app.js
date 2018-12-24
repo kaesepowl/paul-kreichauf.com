@@ -18,6 +18,9 @@ const loadPage = page => dispatch => {
 		case "resume":
 			import("../components/pk-page-resume/pk-page-resume.js");
 			break;
+		case "portfolio":
+			import("../components/pk-page-portfolio/pk-page-portfolio.js");
+			break;
 		default:
 		// page = "view404";
 		// import("../components/my-view404.js");

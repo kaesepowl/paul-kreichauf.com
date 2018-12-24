@@ -101,6 +101,10 @@ class PKApp extends PKConnectedElement {
 						class="page"
 						?active="${page === "resume"}"
 					></pk-page-resume>
+					<pk-page-portfolio
+						class="page"
+						?active="${page === "portfolio"}"
+					></pk-page-portfolio>
 				</div>
 			</div>
 		`;
