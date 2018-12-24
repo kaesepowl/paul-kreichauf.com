@@ -8,6 +8,8 @@ import "../pk-content-desc/pk-content-desc";
 import "../pk-content-group/pk-content-group";
 import "../pk-topic-education/pk-topic-education";
 import "../pk-topic-experience/pk-topic-experience";
+import "../pk-topic-skills-coding/pk-topic-skills-coding";
+import "../pk-topic-skills-infrastructure/pk-topic-skills-infrastructure";
 //
 class PkPageResume extends PKPage {
 	static get properties() {
@@ -35,16 +37,20 @@ class PkPageResume extends PKPage {
 				}
 			</style>
 			<pk-content-title>RESUME</pk-content-title>
-			<pk-content-desc>Over <b>10 Years</b> of Experience</pk-content-desc>
+			<pk-content-desc>
+				Over <b>10 Years</b> of Experience
+			</pk-content-desc>
 			<pk-content-group title="Education">
 				<pk-topic-education></pk-topic-education>
 			</pk-content-group>
 			<pk-content-group title="Experience">
 				<pk-topic-experience></pk-topic-experience>
 			</pk-content-group>
-			<pk-content-group title="Coding Skills"> 1 </pk-content-group>
+			<pk-content-group title="Coding Skills">
+				<pk-topic-skills-coding></pk-topic-skills-coding>
+			</pk-content-group>
 			<pk-content-group title="Infrastructur Skills">
-				1
+				<pk-topic-skills-infrastructure></pk-topic-skills-infrastructure>
 			</pk-content-group>
 		`;
 		return this.wrapContent(content);
