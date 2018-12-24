@@ -1,13 +1,59 @@
 import { hideNavigation } from "./navigation.js";
+import { getAppPage, getAppSubPages } from "../selectors/app.js";
 
 export const APP_UPDATE_PAGE = "APP_UPDATE_PAGE";
+export const APP_UPDATE_SUB_PAGES = "APP_UPDATE_SUB_PAGES";
 
-export const navigate = path => dispatch => {
-	const page = path === "/" ? "home" : path.slice(1);
+const DEFAULT_PAGE = "home";
+
+const splitPath = path => {
+	if (path === "/") {
+		return [DEFAULT_PAGE];
+	}
+	// slice first slash
+	if (path[0] === "/") {
+		path = path.slice(1);
+	}
+	// split by slash
+	return path.split("/");
+};
+
+const getPageByPath = path => {
+	const pathParts = splitPath(path);
+	// return first part of path -> page
+	return pathParts[0];
+};
+
+const getSubPagesByPath = path => {
+	const pathParts = splitPath(path);
 	//
-	dispatch(loadPage(page));
+	if (pathParts.length <= 1) {
+		return [];
+	}
+	// return first part of path -> page
+	return pathParts.slice(1);
+};
+
+export const navigate = path => (dispatch, getState) => {
+	const page = getPageByPath(path);
+	//
+	const subPages = getSubPagesByPath(path);
+	//
+	if (getAppPage(getState()) !== page) {
+		//
+		dispatch(loadPage(page));
+	}
 	//
 	dispatch(hideNavigation());
+	//
+	if (
+		getAppSubPages(getState())
+			.sort()
+			.toString() !== subPages.sort().toString()
+	) {
+		//
+		dispatch(updateSubPages(subPages));
+	}
 };
 
 const loadPage = page => dispatch => {
@@ -33,5 +79,12 @@ const updatePage = page => {
 	return {
 		type: APP_UPDATE_PAGE,
 		page
+	};
+};
+
+const updateSubPages = subPages => {
+	return {
+		type: APP_UPDATE_SUB_PAGES,
+		subPages
 	};
 };

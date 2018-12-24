@@ -14,7 +14,7 @@ class PKScroller extends LitElement {
 		return html`
 			<link
 				rel="stylesheet"
-				href="node_modules/simplebar/dist/simplebar.css"
+				href="/node_modules/simplebar/dist/simplebar.css"
 			/>
 			<style>
 				:host {

@@ -1,9 +1,12 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
+import sharedStyle from "../../styles/shared";
+//
 class PKLink extends LitElement {
 	static get properties() {
 		return {
-			path: { type: String }
+			path: { type: String },
+			active: { type: Boolean, reflect: true }
 		};
 	}
 
@@ -11,18 +14,19 @@ class PKLink extends LitElement {
 		super();
 		//
 		this.path = "/";
+		this.active = false;
 	}
 
 	render() {
 		const { path } = this;
 		return html`
 			<style>
-				:host {
-					display: block;
-					box-sizing: border-box;
+				${sharedStyle} a {
+					text-decoration: none;
+					color: var(--pk-link-color, #666);
 				}
-				a {
-					box-sizing: border-box;
+				:host([active]) a {
+					color: var(--pk-link-active-color, #0078d4);
 				}
 			</style>
 			<a href=${path}> <slot></slot> </a>
