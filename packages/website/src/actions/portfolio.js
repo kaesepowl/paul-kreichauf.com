@@ -12,7 +12,7 @@ const getItems = filter => {
 			subTitle: "Travian Games GmbH"
 		},
 		{
-			tag: PORTFOLIO_TAG_CODING,
+			tag: PORTFOLIO_TAG_MIXES_AUDIO,
 			img: "/src/assets/images/portfolio/coding/imperion.jpg",
 			title: "Imperion",
 			subTitle: "Travian Games GmbH"

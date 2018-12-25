@@ -12,6 +12,7 @@ import "../pk-card-footer/pk-card-footer";
 import "../pk-card/pk-card-new";
 import "../pk-link/pk-link";
 import "../pk-link-icon/pk-link-icon";
+import "../pk-hover-zoom-in/pk-hover-zoom-in";
 //
 import { getAppPage, getAppSubPages } from "../../selectors/app";
 import { getPortfolioItems } from "../../selectors/portfolio";
@@ -44,11 +45,13 @@ class PKPagePortfolio extends PKPage {
 		const { title, img } = item;
 		return html`
 			<pk-card-new>
-				<pk-link-icon type="music">
-					<pk-card-image>
-						<pk-image src=${img}></pk-image>
-					</pk-card-image>
-				</pk-link-icon>
+				<pk-hover-zoom-in>
+					<pk-link-icon type="music">
+						<pk-card-image>
+							<pk-image src=${img}></pk-image>
+						</pk-card-image>
+					</pk-link-icon>
+				</pk-hover-zoom-in>
 				<pk-card-footer>
 					<pk-link slot="title"> Imperion </pk-link>
 					<span slot="subTitle">Travian Games GmbH</span>
