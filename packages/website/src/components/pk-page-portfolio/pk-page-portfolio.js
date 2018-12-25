@@ -7,6 +7,11 @@ import "../pk-content-title/pk-content-title";
 import "../pk-content-desc/pk-content-desc";
 import "../pk-content-filter-group/pk-content-filter-group";
 import "../pk-image/pk-image";
+import "../pk-card-image/pk-card-image";
+import "../pk-card-footer/pk-card-footer";
+import "../pk-card/pk-card-new";
+import "../pk-link/pk-link";
+import "../pk-link-icon/pk-link-icon";
 //
 import { getAppPage, getAppSubPages } from "../../selectors/app";
 import { getPortfolioItems } from "../../selectors/portfolio";
@@ -38,7 +43,17 @@ class PKPagePortfolio extends PKPage {
 	renderItem(item) {
 		const { title, img } = item;
 		return html`
-			<pk-image src=${img}></pk-image>
+			<pk-card-new>
+				<pk-link-icon type="music">
+					<pk-card-image>
+						<pk-image src=${img}></pk-image>
+					</pk-card-image>
+				</pk-link-icon>
+				<pk-card-footer>
+					<pk-link slot="title"> Imperion </pk-link>
+					<span slot="subTitle">Travian Games GmbH</span>
+				</pk-card-footer>
+			</pk-card-new>
 		`;
 	}
 
@@ -75,6 +90,12 @@ class PKPagePortfolio extends PKPage {
 				pk-content-filter-group pk-link {
 					margin-left: 15px;
 					font-weight: 600;
+				}
+				@media (max-width: 1023px) {
+					pk-content-container {
+						grid-template-columns: 1fr 1fr;
+						grid-template-areas: "Title Title" "Desc Desc" "Filter Filter";
+					}
 				}
 			</style>
 			<pk-content-title>PORTFOLIO</pk-content-title>

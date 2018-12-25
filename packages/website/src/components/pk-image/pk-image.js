@@ -13,7 +13,11 @@ class PKImage extends LitElement {
 		return html`
 			${sharedStyle}
 			<style>
+				:host {
+					background: green;
+				}
 				img {
+					display: block;
 					max-width: 100%;
 				}
 			</style>
