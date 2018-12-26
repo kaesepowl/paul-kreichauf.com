@@ -22,52 +22,56 @@ class PKPagePortfolio extends PKPage {
 	static get properties() {
 		return {
 			page: { type: String },
-			subPage: { type: String },
+			filter: { type: String },
 			items: { type: Array }
 		};
 	}
 
 	updated(changeProps) {
 		super.updated(changeProps);
-		if (changeProps.has("subPage")) {
-			this.dispatchAction(updateItems(this.subPage));
+		if (changeProps.has("filter")) {
+			this.dispatchAction(updateItems(this.filter));
 		}
 	}
 
 	stateChanged(state) {
 		this.page = getAppPage(state);
 		const [subPage] = getAppSubPages(state);
-		this.subPage = subPage || null;
+		this.filter = subPage || null;
 		this.items = getPortfolioItems(state);
 	}
 
-	renderItem(item) {
-		const { title, img } = item;
+	renderItem(item, filter) {
+		const { id, title, subTitle, img } = item;
+		const filterPath = filter ? `/${filter}` : "";
 		return html`
 			<pk-card-new>
 				<pk-hover-zoom-in>
-					<pk-link-icon type="music">
+					<pk-link-icon
+						type="music"
+						path=${`/portfolio${filterPath}/modal-${id}`}
+					>
 						<pk-card-image>
 							<pk-image src=${img}></pk-image>
 						</pk-card-image>
 					</pk-link-icon>
 				</pk-hover-zoom-in>
 				<pk-card-footer>
-					<pk-link slot="title"> Imperion </pk-link>
-					<span slot="subTitle">Travian Games GmbH</span>
+					<pk-link slot="title">${title}</pk-link>
+					<span slot="subTitle">${subTitle}</span>
 				</pk-card-footer>
 			</pk-card-new>
 		`;
 	}
 
-	renderItems(items) {
+	renderItems(items, filter) {
 		return html`
-			${items.map(this.renderItem)}
+			${items.map(item => this.renderItem(item, filter))}
 		`;
 	}
 
 	render() {
-		const { page, subPage, items } = this;
+		const { page, filter, items } = this;
 		const content = html`
 			${sharedStyle}
 			<style>
@@ -94,9 +98,10 @@ class PKPagePortfolio extends PKPage {
 					margin-left: 15px;
 					font-weight: 600;
 				}
-				@media (max-width: 1023px) {
+				@media (max-width: 768px) {
 					pk-content-container {
 						grid-template-columns: 1fr 1fr;
+						grid-column-gap: 16px;
 						grid-template-areas: "Title Title" "Desc Desc" "Filter Filter";
 					}
 				}
@@ -104,28 +109,28 @@ class PKPagePortfolio extends PKPage {
 			<pk-content-title>PORTFOLIO</pk-content-title>
 			<pk-content-desc> My <b>Best Works</b> </pk-content-desc>
 			<pk-content-filter-group>
-				<pk-link path=${`/${page}`} ?active=${subPage === null}>
+				<pk-link path=${`/${page}`} ?active=${filter === null}>
 					All
 				</pk-link>
 				<pk-link
 					path=${`/${page}/coding`}
-					?active=${subPage === "coding"}
+					?active=${filter === "coding"}
 					>Coding</pk-link
 				>
 				<pk-link
 					path=${`/${page}/mixes-audio`}
-					?active=${subPage === "mixes-audio"}
+					?active=${filter === "mixes-audio"}
 				>
 					Mixes Audio
 				</pk-link>
 				<pk-link
 					path=${`/${page}/mixes-video`}
-					?active=${subPage === "mixes-video"}
+					?active=${filter === "mixes-video"}
 				>
 					Mixes Video
 				</pk-link>
 			</pk-content-filter-group>
-			${this.renderItems(items)}
+			${this.renderItems(items, filter)}
 		`;
 		return this.wrapContent(content);
 	}
