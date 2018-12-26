@@ -2,6 +2,7 @@ import { html } from "@polymer/lit-element";
 //
 import { installRouter } from "pwa-helpers/router";
 //
+import "./pk-modal/pk-modal";
 import "./pk-header/pk-header";
 import "./pk-icon/pk-icon";
 import "./pk-page-home/pk-page-home";
@@ -85,6 +86,7 @@ class PKApp extends PKConnectedElement {
 					}
 				}
 			</style>
+			<pk-modal></pk-modal>
 			<pk-header></pk-header>
 			<div class="pages">
 				<pk-page-home

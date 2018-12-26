@@ -1,5 +1,6 @@
 import { hideNavigation } from "./navigation.js";
 import { getAppPage, getAppSubPages } from "../selectors/app.js";
+import { modalLoadById, modalHide, modalUnload } from "./modal.js";
 
 export const APP_UPDATE_PAGE = "APP_UPDATE_PAGE";
 export const APP_UPDATE_SUB_PAGES = "APP_UPDATE_SUB_PAGES";
@@ -53,6 +54,17 @@ export const navigate = path => (dispatch, getState) => {
 	) {
 		//
 		dispatch(updateSubPages(subPages));
+		//
+		const [modalId] = subPages.filter(
+			subPage => subPage.indexOf("modal-") === 0
+		);
+		if (modalId) {
+			//
+			dispatch(modalLoadById(modalId.replace("modal-", "")));
+		} else {
+			//
+			dispatch(modalUnload());
+		}
 	}
 };
 
