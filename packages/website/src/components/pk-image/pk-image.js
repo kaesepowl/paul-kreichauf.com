@@ -14,7 +14,6 @@ class PKImage extends LitElement {
 			${sharedStyle}
 			<style>
 				:host {
-					background: green;
 				}
 				img {
 					display: block;

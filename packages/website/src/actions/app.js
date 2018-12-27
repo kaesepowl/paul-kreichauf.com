@@ -87,14 +87,14 @@ const loadPage = page => dispatch => {
 	dispatch(updatePage(page));
 };
 
-const updatePage = page => {
+export const updatePage = page => {
 	return {
 		type: APP_UPDATE_PAGE,
 		page
 	};
 };
 
-const updateSubPages = subPages => {
+export const updateSubPages = subPages => {
 	return {
 		type: APP_UPDATE_SUB_PAGES,
 		subPages

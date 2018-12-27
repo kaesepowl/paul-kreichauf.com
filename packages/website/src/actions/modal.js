@@ -18,7 +18,6 @@ export const modalLoadById = id => async (dispatch, getState) => {
 };
 
 export const modalUnload = () => (dispatch, getState) => {
-	console.log("unload");
 	const currentId = getModalId(getState());
 	//
 	if (currentId !== null) {

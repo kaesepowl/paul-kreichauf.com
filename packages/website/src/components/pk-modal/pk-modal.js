@@ -4,7 +4,8 @@ import { PKConnectedElement } from "../pk-connected-element/pk-connected-element
 //
 import sharedStyle from "../../styles/shared";
 import { getModalOpen, getModalId } from "../../selectors/modal";
-import { getAppSubPages } from "../../selectors/app";
+import { getAppSubPages, getAppPage } from "../../selectors/app";
+import { updateSubPages, navigate } from "../../actions/app";
 //
 class PKModal extends PKConnectedElement {
 	static get properties() {
@@ -17,8 +18,6 @@ class PKModal extends PKConnectedElement {
 	stateChanged(state) {
 		this.hidden = getModalOpen(state) !== true;
 		this.id = getModalId(state);
-
-		console.log(this.hidden, this.id);
 	}
 
 	updated(changedProps) {
@@ -32,6 +31,23 @@ class PKModal extends PKConnectedElement {
 			}
 			container.appendChild(contentElement);
 		}
+	}
+
+	close() {
+		const subPages = getAppSubPages(this.getState());
+		const subPath = subPages
+			.filter(subPage => subPage !== `modal-${this.id}`)
+			.join("/");
+		const page = getAppPage(this.getState());
+		//
+		window.history.pushState(
+			{},
+			"",
+			`/${page}${subPath !== "" ? `/${path}` : ""}`
+		);
+		this.dispatchAction(
+			navigate(decodeURIComponent(window.location.pathname))
+		);
 	}
 
 	render() {
@@ -62,17 +78,56 @@ class PKModal extends PKConnectedElement {
 					background-color: #000;
 				}
 				#content {
-					position: fixed;
+					max-width: 720px;
+					width: 100%;
+					position: absolute;
 					top: 50px;
-					left: 50px;
-					width: 500px;
-					height: 400px;
+					bottom: 50px;
+					left: 50%;
+					transform: translateX(-50%);
 					z-index: 1339;
-					background-color: #ff0080;
+				}
+				#buttonContainer {
+					max-width: 720px;
+					width: 100%;
+					position: absolute;
+					top: 0px;
+					height: 50px;
+					left: 50%;
+					transform: translateX(-50%);
+					z-index: 1339;
+				}
+				button {
+					width: 44px;
+					height: 44px;
+					line-height: 44px;
+					position: absolute;
+					z-index: 1340;
+					right: 0;
+					top: 0;
+					text-decoration: none;
+					text-align: center;
+					opacity: 0.65;
+					color: #fff;
+					font-style: normal;
+					font-size: 28px;
+					font-family: Arial, Baskerville, monospace;
+					overflow: visible;
+					cursor: pointer;
+					background: transparent;
+					border: 0;
+					display: block;
+					outline: none;
+					padding: 0;
+					box-shadow: none;
+					touch-action: manipulation;
 				}
 			</style>
 			<div id="blackLayer"></div>
 			<div id="content"></div>
+			<div id="buttonContainer">
+				<button @click=${e => this.close()}>x</button>
+			</div>
 		`;
 	}
 }
