@@ -2,10 +2,10 @@ import { LitElement, html } from "@polymer/lit-element";
 //
 import sharedStyle from "../../styles/shared";
 //
-import "../pk-youtube/pk-youtube";
+import "../pk-soundcloud/pk-soundcloud";
 import { getModalItemById } from "../../data/modal-items";
 //
-class PKModalVideoYouTube extends LitElement {
+class PKModalAudioSoundCloud extends LitElement {
 	static get properties() {
 		return {
 			modalId: { type: String, reflect: true }
@@ -23,12 +23,15 @@ class PKModalVideoYouTube extends LitElement {
 	}
 
 	render() {
-		const { youtubeId } = this.data;
+		const { soundcloudId } = this.data;
 		return html`
 			${sharedStyle}
-			<pk-youtube youtubeid=${youtubeId}></pk-youtube>
+			<pk-soundcloud soundcloudid=${soundcloudId}></pk-soundcloud>
 		`;
 	}
 }
 //
-window.customElements.define("pk-modal-video-youtube", PKModalVideoYouTube);
+window.customElements.define(
+	"pk-modal-audio-soundcloud",
+	PKModalAudioSoundCloud
+);

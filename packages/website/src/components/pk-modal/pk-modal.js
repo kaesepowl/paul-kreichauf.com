@@ -3,7 +3,6 @@ import { html } from "@polymer/lit-element";
 import { PKConnectedElement } from "../pk-connected-element/pk-connected-element";
 //
 import sharedStyle from "../../styles/shared";
-import { getModalOpen, getModalId } from "../../selectors/modal";
 import { getAppSubPages, getAppPage } from "../../selectors/app";
 import { navigate } from "../../actions/app";
 import { getModalItemById } from "../../data/modal-items";
@@ -57,6 +56,11 @@ class PKModal extends PKConnectedElement {
 	}
 
 	close() {
+		const container = this.shadowRoot.getElementById("content");
+		while (container.firstChild) {
+			container.removeChild(container.firstChild);
+		}
+		//
 		const subPages = getAppSubPages(this.getState());
 		const subPath = subPages
 			.filter(subPage => subPage !== `modal-${this.id}`)
@@ -71,6 +75,8 @@ class PKModal extends PKConnectedElement {
 		this.dispatchAction(
 			navigate(decodeURIComponent(window.location.pathname))
 		);
+		this.id = null;
+		this.type = null;
 	}
 
 	render() {

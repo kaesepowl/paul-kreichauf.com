@@ -38,7 +38,7 @@ class PKModalPortfolioImperion extends LitElement {
 					<pk-element-list-item>item 1</pk-element-list-item>
 					<pk-element-list-item>item 1</pk-element-list-item>
 				</pk-element-list>
-				<pk-youtube youtube-id="2mdnALs-tKs"></pk-youtube>
+				<pk-youtube youtubeid="2mdnALs-tKs"></pk-youtube>
 			</pk-modal-portfolio>
 		`;
 	}

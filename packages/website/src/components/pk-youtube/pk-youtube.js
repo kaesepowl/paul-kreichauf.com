@@ -5,12 +5,12 @@ import sharedStyle from "../../styles/shared";
 class PKYouTube extends LitElement {
 	static get properties() {
 		return {
-			id: { type: String }
+			youtubeId: { type: String }
 		};
 	}
 
 	render() {
-		const { id } = this;
+		const { youtubeId } = this;
 		return html`
 			${sharedStyle}
 			<style>
@@ -30,7 +30,7 @@ class PKYouTube extends LitElement {
 			<iframe
 				width="100%"
 				height="100%"
-				src=${`https://www.youtube.com/embed/${id}`}
+				src=${`https://www.youtube.com/embed/${youtubeId}`}
 				frameborder="0"
 				allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 				allowfullscreen

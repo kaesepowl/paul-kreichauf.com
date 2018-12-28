@@ -70,6 +70,16 @@ export const getModalItems = () => {
 			title: "Kaesebude Podcast #2",
 			subTitle: "2017",
 			youtubeId: "oHzkRLVXr7Y"
+		},
+		{
+			id: "mix-audio-1",
+			type: "audio-soundcloud",
+			tag: PORTFOLIO_TAG_MIXES_AUDIO,
+			img:
+				"https://i1.sndcdn.com/artworks-000352276428-pcp5kf-t500x500.jpg",
+			title: "Melodic House Set",
+			subTitle: "2018",
+			soundcloudId: "448635003"
 		}
 	];
 };
