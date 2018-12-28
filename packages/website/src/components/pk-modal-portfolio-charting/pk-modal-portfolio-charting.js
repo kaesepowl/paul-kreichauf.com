@@ -4,13 +4,13 @@ import sharedStyle from "../../styles/shared";
 //
 import "../pk-modal-portfolio/pk-modal-portfolio";
 //
-import { getPortfolioItemById } from "../../data/portfolio-items";
+import { getModalItemById } from "../../data/modal-items";
 //
 class PKModalPortfolioCharting extends LitElement {
 
 	constructor() {
 		super();
-		this.data = getPortfolioItemById("portfolio-charting")[0];
+		this.data = getModalItemById("portfolio-charting");
 	}
 
 	render() {

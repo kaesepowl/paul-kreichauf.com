@@ -1,19 +1,19 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
 import sharedStyle from "../../styles/shared";
-import { getPortfolioItemById } from "../../data/portfolio-items";
+import { getModalItemById } from "../../data/modal-items";
 //
 import "../pk-element-paragraph/pk-element-paragraph";
 import "../pk-element-quote/pk-element-quote";
 import "../pk-element-list/pk-element-list";
 import "../pk-element-list-item/pk-element-list-item";
 import "../pk-modal-portfolio/pk-modal-portfolio";
+import "../pk-youtube/pk-youtube";
 //
 class PKModalPortfolioImperion extends LitElement {
-
 	constructor() {
 		super();
-		this.data = getPortfolioItemById("portfolio-imperion")[0];
+		this.data = getModalItemById("portfolio-imperion");
 	}
 
 	render() {
@@ -38,17 +38,13 @@ class PKModalPortfolioImperion extends LitElement {
 					<pk-element-list-item>item 1</pk-element-list-item>
 					<pk-element-list-item>item 1</pk-element-list-item>
 				</pk-element-list>
-				<iframe
-					width="100%"
-					height="315"
-					src="https://www.youtube.com/embed/2mdnALs-tKs"
-					frameborder="0"
-					allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen
-				></iframe>
+				<pk-youtube youtube-id="2mdnALs-tKs"></pk-youtube>
 			</pk-modal-portfolio>
 		`;
 	}
 }
 //
-window.customElements.define("pk-modal-portfolio-imperion", PKModalPortfolioImperion);
+window.customElements.define(
+	"pk-modal-portfolio-imperion",
+	PKModalPortfolioImperion
+);

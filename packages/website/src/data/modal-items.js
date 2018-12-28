@@ -2,10 +2,11 @@ export const PORTFOLIO_TAG_CODING = "coding";
 export const PORTFOLIO_TAG_MIXES_AUDIO = "mixes-audio";
 export const PORTFOLIO_TAG_MIXES_VIDEO = "mixes-video";
 
-export const getPortfolioItems = () => {
+export const getModalItems = () => {
 	return [
 		{
 			id: "portfolio-imperion",
+			type: "portfolio-imperion",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/imperion.jpg",
 			title: "Imperion",
@@ -13,6 +14,7 @@ export const getPortfolioItems = () => {
 		},
 		{
 			id: "portfolio-screener",
+			type: "portfolio-screener",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/screener.jpg",
 			title: "Screener",
@@ -20,6 +22,7 @@ export const getPortfolioItems = () => {
 		},
 		{
 			id: "portfolio-charting",
+			type: "portfolio-charting",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/charting.jpg",
 			title: "Interactive Charting",
@@ -27,6 +30,7 @@ export const getPortfolioItems = () => {
 		},
 		{
 			id: "portfolio-tonic",
+			type: "portfolio-tonic",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/tonic.jpg",
 			title: "Tonic.",
@@ -34,13 +38,43 @@ export const getPortfolioItems = () => {
 		},
 		{
 			id: "portfolio-tipp-game",
+			type: "portfolio-tipp-game",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/tipp-game.jpg",
 			title: "Tipp Game",
 			subTitle: "Freelance"
+		},
+		{
+			id: "mix-video-1",
+			type: "video-youtube",
+			tag: PORTFOLIO_TAG_MIXES_VIDEO,
+			img: "https://img.youtube.com/vi/CLj4AHyy7ps/hqdefault.jpg",
+			title: "3 Hours Deep House",
+			subTitle: "2013",
+			youtubeId: "CLj4AHyy7ps"
+		},
+		{
+			id: "mix-video-2",
+			type: "video-youtube",
+			tag: PORTFOLIO_TAG_MIXES_VIDEO,
+			img: "https://img.youtube.com/vi/oZa7G9nltl4/hqdefault.jpg",
+			title: "Deep House Vinyl Mix PII",
+			subTitle: "2013",
+			youtubeId: "oZa7G9nltl4"
+		},
+		{
+			id: "mix-video-3",
+			type: "video-youtube",
+			tag: PORTFOLIO_TAG_MIXES_VIDEO,
+			img: "https://img.youtube.com/vi/oHzkRLVXr7Y/hqdefault.jpg",
+			title: "Kaesebude Podcast #2",
+			subTitle: "2017",
+			youtubeId: "oHzkRLVXr7Y"
 		}
 	];
 };
 
-export const getPortfolioItemById = id =>
-	getPortfolioItems().filter(item => item.id === id);
+export const getModalItemById = id => {
+	const [res = null] = getModalItems().filter(item => item.id === id);
+	return res;
+};

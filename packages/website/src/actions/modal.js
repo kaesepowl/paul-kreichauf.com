@@ -5,15 +5,19 @@ export const MODAL_HIDE = "MODAL_HIDE";
 export const MODAL_LOAD = "MODAL_LOAD";
 export const MODAL_UPDATE_ID = "MODAL_UPDATE_ID";
 
-export const modalLoadById = id => async (dispatch, getState) => {
+export const modalLoad = ({ id, type }) => async (dispatch, getState) => {
 	const currentId = getModalId(getState());
 	//
-	if (currentId !== id) {
-		await import(`../components/pk-modal-${id}/pk-modal-${id}.js`);
-		//
-		dispatch(modalUpdateId(id));
-		//
-		dispatch(modalShow());
+	if (currentId !== type) {
+		try {
+			await import(`../components/pk-modal-${type}/pk-modal-${type}.js`);
+			//
+			dispatch(modalUpdateId(id));
+			//
+			dispatch(modalShow());
+		} catch (e) {
+			console.error(e);
+		}
 	}
 };
 

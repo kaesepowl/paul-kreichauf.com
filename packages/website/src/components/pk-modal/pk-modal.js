@@ -6,25 +6,48 @@ import sharedStyle from "../../styles/shared";
 import { getModalOpen, getModalId } from "../../selectors/modal";
 import { getAppSubPages, getAppPage } from "../../selectors/app";
 import { navigate } from "../../actions/app";
+import { getModalItemById } from "../../data/modal-items";
+import { modalLoad } from "../../actions/modal";
 //
 class PKModal extends PKConnectedElement {
 	static get properties() {
 		return {
 			hidden: { type: Boolean, reflect: true },
-			id: { type: String }
+			id: { type: String },
+			type: { type: String }
 		};
 	}
 
 	stateChanged(state) {
-		this.hidden = getModalOpen(state) !== true;
-		this.id = getModalId(state);
+		const subPages = getAppSubPages(state);
+		//check if modal is in sub page
+		const [modalId = null] = subPages.filter(
+			subPage => subPage.indexOf("modal-") > -1
+		);
+		//
+		this.hidden = modalId === null;
+		//
+		if (modalId !== null) {
+			const cleanId = modalId.replace("modal-", "");
+			//
+			if (cleanId !== this.id) {
+				this.id = cleanId;
+				//
+				const data = getModalItemById(cleanId);
+				//
+				this.type = data.type;
+				//
+				this.dispatchAction(modalLoad(data));
+			}
+		}
 	}
 
 	updated(changedProps) {
 		if (changedProps.has("id") && this.id !== null) {
 			const contentElement = document.createElement(
-				`pk-modal-${this.id}`
+				`pk-modal-${this.type}`
 			);
+			contentElement.modalId = this.id;
 			const container = this.shadowRoot.getElementById("content");
 			while (container.firstChild) {
 				container.removeChild(container.firstChild);

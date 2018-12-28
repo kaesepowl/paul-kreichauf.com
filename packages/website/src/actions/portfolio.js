@@ -1,9 +1,9 @@
-import { getPortfolioItems } from "../data/portfolio-items";
+import { getModalItems } from "../data/modal-items";
 
 export const PORTFOLIO_UPDATE_ITEMS = "PORTFOLIO_UPDATE_ITEMS";
 
 const getItems = filter => {
-	const items = getPortfolioItems();
+	const items = getModalItems();
 	//
 	if (!filter) {
 		return items;
