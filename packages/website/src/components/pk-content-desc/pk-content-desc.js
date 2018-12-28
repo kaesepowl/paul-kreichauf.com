@@ -1,9 +1,6 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
 class PkContentDesc extends LitElement {
-	static get properties() {
-		return {};
-	}
 
 	render() {
 		return html`

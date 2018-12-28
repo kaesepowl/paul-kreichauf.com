@@ -3,9 +3,6 @@ import { LitElement, html } from "@polymer/lit-element";
 import sharedStyle from "../../styles/shared";
 //
 class PKElementList extends LitElement {
-	static get properties() {
-		return {};
-	}
 
 	render() {
 		return html`

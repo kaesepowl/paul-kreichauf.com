@@ -10,9 +10,6 @@ import "../pk-element-list-item/pk-element-list-item";
 import "../pk-modal-portfolio/pk-modal-portfolio";
 //
 class PKModalPortfolioImperion extends LitElement {
-	static get properties() {
-		return {};
-	}
 
 	constructor() {
 		super();

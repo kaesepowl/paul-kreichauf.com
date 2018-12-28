@@ -5,10 +5,6 @@ import sharedStyle from "../../styles/shared";
 import "../pk-card/pk-card";
 //
 class PKTopicEducation extends LitElement {
-	static get properties() {
-		return {};
-	}
-
 	render() {
 		return html`
 			${sharedStyle}

@@ -4,10 +4,6 @@ import "../pk-card/pk-card";
 import "../pk-icon/pk-icon";
 //
 class PKTopicServices extends LitElement {
-	static get properties() {
-		return {};
-	}
-
 	render() {
 		return html`
 			<style>

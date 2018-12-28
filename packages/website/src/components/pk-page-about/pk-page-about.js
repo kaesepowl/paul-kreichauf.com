@@ -12,9 +12,6 @@ import "../pk-animate/pk-animate";
 import "../pk-topic-services/pk-topic-services";
 //
 class PKPageAbout extends PKPage {
-	static get properties() {
-		return {};
-	}
 
 	render() {
 		const content = html`

@@ -19,21 +19,21 @@ export const getPortfolioItems = () => {
 			subTitle: "financial.com"
 		},
 		{
-			id: "charting",
+			id: "portfolio-charting",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/charting.jpg",
 			title: "Interactive Charting",
 			subTitle: "financial.com"
 		},
 		{
-			id: "tonic",
+			id: "portfolio-tonic",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/tonic.jpg",
 			title: "Tonic.",
 			subTitle: "Team Internet AG"
 		},
 		{
-			id: "tipp-game",
+			id: "portfolio-tipp-game",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/tipp-game.jpg",
 			title: "Tipp Game",

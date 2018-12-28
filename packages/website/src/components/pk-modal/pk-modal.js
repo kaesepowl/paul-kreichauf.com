@@ -43,7 +43,7 @@ class PKModal extends PKConnectedElement {
 		window.history.pushState(
 			{},
 			"",
-			`/${page}${subPath !== "" ? `/${path}` : ""}`
+			`/${page}${subPath !== "" ? `/${subPath}` : ""}`
 		);
 		this.dispatchAction(
 			navigate(decodeURIComponent(window.location.pathname))

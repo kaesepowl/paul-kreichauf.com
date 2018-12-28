@@ -1,4 +1,4 @@
-import { html, LitElement } from "@polymer/lit-element";
+import { LitElement, html } from "@polymer/lit-element";
 //
 import sharedStyle from "../../styles/shared";
 //
@@ -6,10 +6,10 @@ import "../pk-modal-portfolio/pk-modal-portfolio";
 //
 import { getPortfolioItemById } from "../../data/portfolio-items";
 //
-class PKModalPortfolioScreener extends LitElement {
+class PKModalPortfolioTippGame extends LitElement {
 	constructor() {
 		super();
-		this.data = getPortfolioItemById("portfolio-screener")[0];
+		this.data = getPortfolioItemById("portfolio-tipp-game")[0];
 	}
 
 	render() {
@@ -17,13 +17,13 @@ class PKModalPortfolioScreener extends LitElement {
 		return html`
 			${sharedStyle}
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				screener
+				tipp game
 			</pk-modal-portfolio>
 		`;
 	}
 }
 //
 window.customElements.define(
-	"pk-modal-portfolio-screener",
-	PKModalPortfolioScreener
+	"pk-modal-portfolio-tipp-game",
+	PKModalPortfolioTippGame
 );

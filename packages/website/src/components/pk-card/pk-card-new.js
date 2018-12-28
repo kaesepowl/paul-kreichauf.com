@@ -3,9 +3,6 @@ import { LitElement, html } from "@polymer/lit-element";
 import sharedStyle from "../../styles/shared";
 //
 class PKCard extends LitElement {
-	static get properties() {
-		return {};
-	}
 
 	firstUpdated(props) {
 		// const slotElement = this.shadowRoot.querySelector("slot");

@@ -3,9 +3,6 @@ import { LitElement, html } from "@polymer/lit-element";
 import "../pk-scroller/pk-scroller";
 //
 class PKContent extends LitElement {
-	static get properties() {
-		return {};
-	}
 
 	render() {
 		return html`

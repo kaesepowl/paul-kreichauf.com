@@ -12,9 +12,6 @@ import "../pk-topic-skills-coding/pk-topic-skills-coding";
 import "../pk-topic-skills-infrastructure/pk-topic-skills-infrastructure";
 //
 class PKPageResume extends PKPage {
-	static get properties() {
-		return {};
-	}
 
 	render() {
 		const content = html`

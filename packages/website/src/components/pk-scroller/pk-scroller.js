@@ -1,10 +1,6 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
 class PKScroller extends LitElement {
-	static get properties() {
-		return {};
-	}
-
 	async firstUpdated() {
 		await this.updateComplete;
 		new SimpleBar(this.shadowRoot.getElementById("legacyWrapper"));

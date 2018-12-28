@@ -5,9 +5,6 @@ import sharedStyle from "../../styles/shared";
 import "../pk-progress/pk-progress";
 //
 class PKTopicSkillsInfrastructure extends LitElement {
-	static get properties() {
-		return {};
-	}
 	render() {
 		return html`
 			${sharedStyle}
