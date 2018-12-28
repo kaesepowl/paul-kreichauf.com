@@ -1,11 +1,11 @@
-import { LitElement, html } from "@polymer/lit-element";
+import { html } from "@polymer/lit-element";
 //
 import { PKConnectedElement } from "../pk-connected-element/pk-connected-element";
 //
 import sharedStyle from "../../styles/shared";
 import { getModalOpen, getModalId } from "../../selectors/modal";
 import { getAppSubPages, getAppPage } from "../../selectors/app";
-import { updateSubPages, navigate } from "../../actions/app";
+import { navigate } from "../../actions/app";
 //
 class PKModal extends PKConnectedElement {
 	static get properties() {
@@ -76,6 +76,7 @@ class PKModal extends PKConnectedElement {
 					z-index: 1338;
 					opacity: 0.8;
 					background-color: #000;
+					cursor: zoom-out;
 				}
 				#content {
 					max-width: 720px;
@@ -100,7 +101,7 @@ class PKModal extends PKConnectedElement {
 				button {
 					width: 44px;
 					height: 44px;
-					line-height: 44px;
+					line-height: 42px;
 					position: absolute;
 					z-index: 1340;
 					right: 0;
@@ -123,7 +124,7 @@ class PKModal extends PKConnectedElement {
 					touch-action: manipulation;
 				}
 			</style>
-			<div id="blackLayer"></div>
+			<div id="blackLayer" @click=${e => this.close()}></div>
 			<div id="content"></div>
 			<div id="buttonContainer">
 				<button @click=${e => this.close()}>x</button>

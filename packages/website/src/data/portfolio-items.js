@@ -5,14 +5,14 @@ export const PORTFOLIO_TAG_MIXES_VIDEO = "mixes-video";
 export const getPortfolioItems = () => {
 	return [
 		{
-			id: "imperion",
+			id: "portfolio-imperion",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/imperion.jpg",
 			title: "Imperion",
 			subTitle: "Travian Games GmbH"
 		},
 		{
-			id: "screener",
+			id: "portfolio-screener",
 			tag: PORTFOLIO_TAG_CODING,
 			img: "/src/assets/images/portfolio/coding/screener.jpg",
 			title: "Screener",
