@@ -1,7 +1,6 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
 class PkContentDesc extends LitElement {
-
 	render() {
 		return html`
 			<style>
@@ -20,6 +19,12 @@ class PkContentDesc extends LitElement {
 				::slotted(b) {
 					color: #0078d4;
 					font-weight: 700;
+				}
+
+				@media (max-width: 480px) {
+					:host {
+						margin-top: -28px;
+					}
 				}
 			</style>
 			<slot></slot>

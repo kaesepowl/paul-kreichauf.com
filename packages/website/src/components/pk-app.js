@@ -61,6 +61,7 @@ class PKApp extends PKConnectedElement {
 				}
 
 				.subpages {
+					box-sizing: border-box;
 					position: absolute;
 					margin: 30px auto;
 					left: 0;

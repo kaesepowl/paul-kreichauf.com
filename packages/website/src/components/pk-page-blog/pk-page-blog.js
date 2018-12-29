@@ -29,7 +29,8 @@ class PKPageBlog extends PKPage {
 		this.items = getBlogItems(state);
 	}
 
-	firstUpdated() {
+	firstUpdated(props) {
+		super.firstUpdated(props);
 		this.dispatchAction(updateItems());
 	}
 
