@@ -2,6 +2,8 @@ export const PORTFOLIO_TAG_CODING = "coding";
 export const PORTFOLIO_TAG_MIXES_AUDIO = "mixes-audio";
 export const PORTFOLIO_TAG_MIXES_VIDEO = "mixes-video";
 
+export const BLOG_TAG_CODING = "blog-coding";
+
 export const getModalItems = () => {
 	return [
 		{
@@ -80,6 +82,16 @@ export const getModalItems = () => {
 			title: "Melodic House Set",
 			subTitle: "2018",
 			soundcloudId: "448635003"
+		},
+		{
+			id: "blog-1",
+			type: "blog",
+			tag: BLOG_TAG_CODING,
+			img:
+				"https://i1.sndcdn.com/artworks-000352276428-pcp5kf-t500x500.jpg",
+			title: "First Blog",
+			subTitle: "29-12-2018",
+			md: "first.md"
 		}
 	];
 };
