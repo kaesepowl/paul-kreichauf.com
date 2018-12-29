@@ -21,13 +21,11 @@ import { updateItems } from "../../actions/blog";
 class PKPageBlog extends PKPage {
 	static get properties() {
 		return {
-			page: { type: String },
 			items: { type: Array }
 		};
 	}
 
 	stateChanged(state) {
-		this.page = getAppPage(state);
 		this.items = getBlogItems(state);
 	}
 
@@ -65,7 +63,7 @@ class PKPageBlog extends PKPage {
 	}
 
 	render() {
-		const { page, filter, items } = this;
+		const { filter, items } = this;
 		const content = html`
 			${sharedStyle}
 			<style>

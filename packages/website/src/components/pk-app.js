@@ -111,6 +111,10 @@ class PKApp extends PKConnectedElement {
 						class="page"
 						?active="${page === "blog"}"
 					></pk-page-blog>
+					<pk-page-contact
+						class="page"
+						?active="${page === "contact"}"
+					></pk-page-contact>
 				</div>
 			</div>
 		`;
