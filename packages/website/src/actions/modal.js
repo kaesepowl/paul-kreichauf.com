@@ -10,7 +10,32 @@ export const modalLoad = ({ id, type }) => async (dispatch, getState) => {
 	//
 	if (currentId !== type) {
 		try {
-			await import(`../components/pk-modal-${type}/pk-modal-${type}.js`);
+			switch (type) {
+				case "portfolio-imperion":
+					await import("../components/pk-modal-portfolio-imperion/pk-modal-portfolio-imperion.js");
+					break;
+				case "portfolio-screener":
+					await import("../components/pk-modal-portfolio-screener/pk-modal-portfolio-screener.js");
+					break;
+				case "portfolio-charting":
+					await import("../components/pk-modal-portfolio-charting/pk-modal-portfolio-charting.js");
+					break;
+				case "portfolio-tonic":
+					await import("../components/pk-modal-portfolio-tonic/pk-modal-portfolio-tonic.js");
+					break;
+				case "portfolio-tipp-game":
+					await import("../components/pk-modal-portfolio-tipp-game/pk-modal-portfolio-tipp-game.js");
+					break;
+				case "video-youtube":
+					await import("../components/pk-modal-video-youtube/pk-modal-video-youtube.js");
+					break;
+				case "audio-soundcloud":
+					await import("../components/pk-modal-audio-soundcloud/pk-modal-audio-soundcloud.js");
+					break;
+				case "blog":
+					await import("../components/pk-modal-blog/pk-modal-blog.js");
+					break;
+			}
 			//
 			dispatch(modalUpdateId(id));
 			//

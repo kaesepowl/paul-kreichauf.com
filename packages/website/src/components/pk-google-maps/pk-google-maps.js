@@ -1,6 +1,4 @@
 import { LitElement, html } from "@polymer/lit-element";
-//
-import sharedStyle from "../../styles/shared";
 //TODO refactor this
 const googleMapsLoadedPromise = new Promise(r => (window.__initGoodMap = r));
 let initCalled = false;

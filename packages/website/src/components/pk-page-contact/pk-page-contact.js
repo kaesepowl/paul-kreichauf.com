@@ -8,6 +8,8 @@ import "../pk-form/pk-form";
 import "../pk-form-input-text/pk-form-input-text";
 import "../pk-form-textarea/pk-form-textarea";
 import "../pk-form-button/pk-form-button";
+import "../pk-topic-imprint/pk-topic-imprint";
+import "../pk-topic-privacy/pk-topic-privacy";
 //
 class PKPageContact extends PKPage {
 	render() {
@@ -18,10 +20,20 @@ class PKPageContact extends PKPage {
 					grid-template-columns: 1fr 1fr;
 					grid-column-gap: 30px;
 					grid-row-gap: 0px;
-					grid-template-areas: "Title Title" "Contact Map";
+					grid-template-areas: "Title Title" "Contact Map" "Imprint Imprint" "Privacy Privacy";
 				}
 				pk-content-title {
 					grid-area: Title;
+				}
+				#imprint {
+					grid-area: Imprint;
+				}
+				#privacy {
+					grid-area: Privacy;
+				}
+				pk-topic-imprint,
+				pk-topic-privacy {
+					margin: 15px;
 				}
 				#contact {
 					grid-area: Contact;
@@ -42,7 +54,7 @@ class PKPageContact extends PKPage {
 				pk-google-maps {
 					grid-area: Map;
 					margin-top: 50px;
-					height: 550px;
+					height: 580px;
 				}
 				pk-icon {
 					color: #0078d4;
@@ -62,7 +74,7 @@ class PKPageContact extends PKPage {
 				@media (max-width: 575px) {
 					pk-content-container {
 						grid-template-columns: 1fr;
-						grid-template-areas: "Title" "Contact" "Map";
+						grid-template-areas: "Title" "Contact" "Map" "Imprint" "Privacy";
 					}
 				}
 			</style>
@@ -81,7 +93,11 @@ class PKPageContact extends PKPage {
 					</div>
 					<div>
 						<pk-icon type="phone"></pk-icon>
-						<a href="tel:+491734302543"> +49 173 430 25 43 </a>
+						<a href="tel:+491734302543"> +49 173 4302542 </a>
+					</div>
+					<div>
+						<pk-icon type="fax"></pk-icon>
+						<span>+49 32 221937798 </span>
 					</div>
 				</pk-content-group>
 				<pk-content-group title="Contact Form">
@@ -107,6 +123,12 @@ class PKPageContact extends PKPage {
 					</pk-form>
 				</pk-content-group>
 			</div>
+			<pk-content-group id="imprint" title="Imprint">
+				<pk-topic-imprint></pk-topic-imprint>
+			</pk-content-group>
+			<pk-content-group id="privacy" title="Privacy">
+				<pk-topic-privacy></pk-topic-privacy>
+			</pk-content-group>
 			<pk-google-maps
 				longitude="11.6006313"
 				latitude="48.1452504"
