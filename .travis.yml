@@ -1,6 +1,10 @@
 language: node_js
 node_js:
     - node
+cache:
+    yarn: true
+    directories:
+        - node_modules
 env:
     - BUILD_DIR=packages/website
 script:
@@ -8,7 +12,7 @@ script:
     - yarn install
     - yarn build:static
     - PACKAGE_VERSION=$(node -p "require('./package.json').version")
-# deploy: 
+# deploy:
 #     - provider: s3
 #       access_key_id: AKIAIK5SMBFTGEG3EJPQ
 #       secret_access_key:
@@ -20,7 +24,7 @@ script:
 #       on:
 #         condition: $BUILD_DIR = packages/components
 #         branch: master
-#         repo: kaesepowl/poc-v1 
+#         repo: kaesepowl/poc-v1
 #     - provider: s3
 #       access_key_id: AKIAIK5SMBFTGEG3EJPQ
 #       secret_access_key:
@@ -31,4 +35,4 @@ script:
 #       on:
 #         condition: $BUILD_DIR = packages/demo-app
 #         branch: master
-#         repo: kaesepowl/poc-v1 
+#         repo: kaesepowl/poc-v1
