@@ -1,8 +1,13 @@
 import { hideNavigation } from "./navigation.js";
-import { getAppPage, getAppSubPages } from "../selectors/app.js";
+import {
+	getAppPage,
+	getAppSubPages,
+	getAppLoadedPages
+} from "../selectors/app.js";
 
 export const APP_UPDATE_PAGE = "APP_UPDATE_PAGE";
 export const APP_UPDATE_SUB_PAGES = "APP_UPDATE_SUB_PAGES";
+export const APP_ADD_LOADED_PAGE = "APP_ADD_LOADED_PAGE";
 
 const DEFAULT_PAGE = "home";
 
@@ -34,14 +39,14 @@ const getSubPagesByPath = path => {
 	return pathParts.slice(1);
 };
 
-export const navigate = path => (dispatch, getState) => {
+export const navigate = path => async (dispatch, getState) => {
 	const page = getPageByPath(path);
 	//
 	const subPages = getSubPagesByPath(path);
 	//
 	if (getAppPage(getState()) !== page) {
 		//
-		dispatch(loadPage(page));
+		await dispatch(loadPage(page));
 	}
 	//
 	dispatch(hideNavigation());
@@ -56,29 +61,40 @@ export const navigate = path => (dispatch, getState) => {
 	}
 };
 
-const loadPage = page => dispatch => {
-	switch (page) {
-		case "about":
-			import("../components/pk-page-about/pk-page-about.js");
-			break;
-		case "resume":
-			import("../components/pk-page-resume/pk-page-resume.js");
-			break;
-		case "portfolio":
-			import("../components/pk-page-portfolio/pk-page-portfolio.js");
-			break;
-		case "blog":
-			import("../components/pk-page-blog/pk-page-blog.js");
-			break;
-		case "contact":
-			import("../components/pk-page-contact/pk-page-contact.js");
-			break;
-		default:
-		// page = "view404";
-		// import("../components/my-view404.js");
+const loadPage = page => async (dispatch, getState) => {
+	if (getAppLoadedPages(getState()).includes(page) === false) {
+		switch (page) {
+			case "about":
+				await import("../components/pk-page-about/pk-page-about.js");
+				break;
+			case "resume":
+				await import("../components/pk-page-resume/pk-page-resume.js");
+				break;
+			case "portfolio":
+				await import("../components/pk-page-portfolio/pk-page-portfolio.js");
+				break;
+			case "blog":
+				await import("../components/pk-page-blog/pk-page-blog.js");
+				break;
+			case "contact":
+				await import("../components/pk-page-contact/pk-page-contact.js");
+				break;
+			default:
+			// page = "view404";
+			// import("../components/my-view404.js");
+		}
+		dispatch(addLoadedPage(page));
 	}
-
 	dispatch(updatePage(page));
+};
+
+export const addLoadedPage = page => (dispatch, getState) => {
+	if (getAppLoadedPages(getState()).includes(page) === false) {
+		dispatch({
+			type: APP_ADD_LOADED_PAGE,
+			page
+		});
+	}
 };
 
 export const updatePage = page => {

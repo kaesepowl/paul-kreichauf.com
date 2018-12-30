@@ -1,12 +1,22 @@
-import { APP_UPDATE_PAGE, APP_UPDATE_SUB_PAGES } from "../actions/app";
+import {
+	APP_UPDATE_PAGE,
+	APP_UPDATE_SUB_PAGES,
+	APP_ADD_LOADED_PAGE
+} from "../actions/app";
 
 const INITIAL_STATE = {
 	page: "home",
-	subPages: []
+	subPages: [],
+	loadedPages: []
 };
 
 export const app = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		case APP_ADD_LOADED_PAGE:
+			return {
+				...state,
+				loadedPages: [...state.loadedPages, action.page]
+			};
 		case APP_UPDATE_PAGE:
 			return {
 				...state,

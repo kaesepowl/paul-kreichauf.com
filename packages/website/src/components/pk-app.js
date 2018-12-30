@@ -42,7 +42,6 @@ class PKApp extends PKConnectedElement {
 					display: block;
 				}
 				.page {
-					opacity: 0;
 					position: absolute;
 					width: 100%;
 					height: 100%;
@@ -51,9 +50,6 @@ class PKApp extends PKConnectedElement {
 
 				.page[active] {
 					z-index: 10;
-				}
-				.page[visible] {
-					opacity: 1;
 				}
 
 				.pages {
@@ -97,11 +93,7 @@ class PKApp extends PKConnectedElement {
 			<pk-modal></pk-modal>
 			<pk-header></pk-header>
 			<div class="pages">
-				<pk-page-home
-					active
-					visible
-					?empty=${page !== "home"}
-				></pk-page-home>
+				<pk-page-home ?empty=${page !== "home"}></pk-page-home>
 				<div class="subpages">
 					<pk-page-about
 						class="page"

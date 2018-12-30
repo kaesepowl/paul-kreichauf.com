@@ -35,6 +35,7 @@ class PKPagePortfolio extends PKPage {
 	}
 
 	stateChanged(state) {
+		super.stateChanged(state);
 		this.page = getAppPage(state);
 		const [subPage] = getAppSubPages(state);
 		this.filter = subPage || null;

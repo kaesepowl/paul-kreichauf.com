@@ -1,7 +1,7 @@
-import { html } from "@polymer/lit-element";
+import { html, LitElement } from "@polymer/lit-element";
 import { PKPage } from "../pk-page/pk-page";
 //
-class PKPageHome extends PKPage {
+class PKPageHome extends LitElement {
 	static get properties() {
 		return {
 			empty: { type: Boolean, reflect: true }
@@ -27,7 +27,9 @@ class PKPageHome extends PKPage {
 				}
 
 				@media (max-width: 1600px) and (min-width: 1024px) {
-					background-position: 75% 10%;
+					:host {
+						background-position: 75% 10%;
+					}
 				}
 
 				.bg {
@@ -46,11 +48,11 @@ class PKPageHome extends PKPage {
 					padding-left: 12%;
 					position: relative;
 					z-index: 2;
+					transition: 0.5s;
 				}
 				.content > div {
 					display: table-cell;
 					vertical-align: middle;
-					/* opacity: 0; */
 				}
 				.title {
 					line-height: 1.5em;
@@ -77,6 +79,7 @@ class PKPageHome extends PKPage {
 					}
 				}
 			</style>
+
 			<div class="content">
 				<div>
 					<div class="title">Paul Kreichauf</div>

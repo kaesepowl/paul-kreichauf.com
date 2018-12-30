@@ -5,6 +5,7 @@ import { PKConnectedElement } from "../pk-connected-element/pk-connected-element
 import "../pk-animate/pk-animate";
 import "../pk-content/pk-content";
 import "../pk-content-container/pk-content-container";
+import { getAppLoadedPages } from "../../selectors/app";
 export class PKPage extends PKConnectedElement {
 	static get properties() {
 		return {
@@ -13,27 +14,43 @@ export class PKPage extends PKConnectedElement {
 		};
 	}
 
+	constructor() {
+		super();
+		this.active = false;
+		this.visible = false;
+		this.loaded = false;
+	}
+
+	stateChanged(state) {
+		const loadedPages = getAppLoadedPages(state);
+		const page = this.tagName.toLowerCase().replace("pk-page-", "");
+		this.loaded = loadedPages.includes(page);
+	}
+
 	firstUpdated() {
-		const animateElement = this.shadowRoot.querySelector("pk-animate");
+		this.animation = this.shadowRoot.querySelector("pk-animate");
 		//
-		if (animateElement) {
-			animateElement.addEventListener("animationFinish", e => {
-				this.visible = this.active;
-			});
+		this.animation.addEventListener("animationFinish", e => {
+			this.visible = this.active;
+		});
+	}
+
+	triggerAnimation() {
+		// do not trigger if not complete loaded
+		if (this.loaded === false) {
+			return;
+		}
+		if (this.active === true) {
+			this.animation.startAnimation("fadeInDown");
+			this.visible = true;
+		} else {
+			this.animation.startAnimation("fadeOutDown");
 		}
 	}
 
 	updated(props) {
 		if (props.has("active")) {
-			const animateElement = this.shadowRoot.querySelector("pk-animate");
-			if (animateElement && animateElement.type === null) {
-				if (this.active === true) {
-					animateElement.startAnimation("fadeInDown");
-					this.visible = true;
-				} else {
-					animateElement.startAnimation("fadeOutDown");
-				}
-			}
+			this.triggerAnimation();
 		}
 	}
 
@@ -42,6 +59,11 @@ export class PKPage extends PKConnectedElement {
 			<style>
 				:host {
 					display: block;
+					opacity: 0;
+				}
+
+				:host([visible]) {
+					opacity: 1;
 				}
 			</style>
 			<pk-animate>

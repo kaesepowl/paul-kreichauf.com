@@ -26,6 +26,7 @@ class PKPageBlog extends PKPage {
 	}
 
 	stateChanged(state) {
+		super.stateChanged(state);
 		this.items = getBlogItems(state);
 	}
 
