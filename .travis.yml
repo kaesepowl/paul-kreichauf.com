@@ -9,6 +9,7 @@ env:
     - BUILD_DIR=packages/website
 script:
     - cd $BUILD_DIR
+    - yarn install
     - yarn build:static
     - PACKAGE_VERSION=$(node -p "require('./package.json').version")
 deploy:
