@@ -13,14 +13,29 @@ script:
     - yarn build:static
     - PACKAGE_VERSION=$(node -p "require('./package.json').version")
 deploy:
-    - provider: s3
-      access_key_id: AKIAIK5SMBFTGEG3EJPQ
-      secret_access_key:
-        secure: naw/UL21655/xACvExIQKVWrI1TL+JStFcQPzLJhCH/h74Jbaq7gh+BtKLY64BE63qc0GOsn8lcmW8RxUAgiIUsi6KHQioLzVOJ7EVDT15ZFJTfyg2RDnBtylKO6wO7fz9by46+R79Ait9PlSvDCiW3SEl5yc2HZ0eRSV1lBOUrSSxSb3WhTSLmyoZjOCr6e+X0rhlQOa+6ieNcsTYRICMcC3J4wId0qnrJet7BxVWiB22wsOy8BGOlUHsL6oSqV1inu8GCPVk5G4Ti73GzBZAjLuEu2o2usHop5Qs7ZAyTpQ5RRSpGgfjbwQGET1aC2fP4NQaOouC5FLnlAvaIzQOMYtnJrk119q710EHYHlcWAd8RPgNXzmiMd9DY/x0aqPDLPPpkfKHRLARs2iJ01ZMC1pH0CBcF71d/v5XpUYl5eVnQyYZCcUnOlJDpHWD5aebTidkD3D1k/+LPSL6i7FFtBOig79BDoxAjIICY18WZBdOq5VEZedD/nuuwdHOmM7XTkK99FKfYqbLouCuRszI3EkWvsCfaU4Uobz3ISNIrGCSpNw6v2bMtncCvQpQ33Iiix4nT5XwF3i6oCqfxUmlRiB9mMo5hWRtGEMAiguc2haWHLoFIc0367eOkn5+aqDF8Ga6tOIyYjtaYWxz6pngWaarwo6FgNZ/BfVG31vKY=
-      bucket: paul-kreichauf.com
-      local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
-      skip_cleanup: true
-      on:
+    provider: s3
+    access_key_id: AKIAIB4CMTIMEWLEFT7Q
+    secret_access_key:
+        secure: BCDIVOHmeUBBBjQN4E5nHNDVlCq7XuzOV7P2X90xwBbTsDZ6ViIrF6l/naD35sGfgjG1JWiJiwBMRkTvCeVkdxLa2ine0lchMh/r/7Bqjbmss5fEY4x63xSGouZYhE6KDrW53VVzViTeagjuHOjAvkULyNUJ9HfqMn3+DOd7cWqpaxXCQOMJ/w+dKxsyjqwV9/UTe0ZlBoO1KN+mwBHDBmBOoxEs6UUR4ABIh2Tk6XRSRy+WyLLLZdi2+3VMDSPB8ISO5KDTcoIgxeXQs5PQPzAG6Ugom0Yk8hhMcCzL7tzqECTC8wyTM8pk6qpF+IVspsOFgQVk7gA7FpOeM1DzWsbh9i6xkgzSzIfon+9Tkx8MxqHwQar3LnjmwQ5PsdIGSJHtflan9vX0IZJqmceTK3yOBLpQWUoUyvjDk6hO4+5UOPKW1Pz+Fy1JxjRLYZX97ikHJpyYbrg1rJ14AsAuJxMMDmpl+mNgO9yDsakOx4LjKf33qmQG4FrUMu5TMdceEsDiOn5RF7S4E/0hqSuCed43p6xUw4Rs7rLnh23Qvz2scjlvwcjukPiIpkePLI2Dc8LrXUjFsX+6SRyReSXlffZrwASGqbi8YPbfFvYkmtQjQnywYpIzivUqjEv+febFt+NRxQIOmruobougUynhR02yppzVjcCA9mr7yTvCZ1U=
+    bucket: paul-kreichauf.com
+    acl: ""
+    local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
+    skip_cleanup: true
+    on:
         condition: $BUILD_DIR = packages/website
         branch: master
         repo: kaesepowl/paul-kreichauf.com
+
+
+# deploy:
+#     - provider: s3
+#       access_key_id: AKIAIK5SMBFTGEG3EJPQ
+#       secret_access_key:
+#         secure: naw/UL21655/xACvExIQKVWrI1TL+JStFcQPzLJhCH/h74Jbaq7gh+BtKLY64BE63qc0GOsn8lcmW8RxUAgiIUsi6KHQioLzVOJ7EVDT15ZFJTfyg2RDnBtylKO6wO7fz9by46+R79Ait9PlSvDCiW3SEl5yc2HZ0eRSV1lBOUrSSxSb3WhTSLmyoZjOCr6e+X0rhlQOa+6ieNcsTYRICMcC3J4wId0qnrJet7BxVWiB22wsOy8BGOlUHsL6oSqV1inu8GCPVk5G4Ti73GzBZAjLuEu2o2usHop5Qs7ZAyTpQ5RRSpGgfjbwQGET1aC2fP4NQaOouC5FLnlAvaIzQOMYtnJrk119q710EHYHlcWAd8RPgNXzmiMd9DY/x0aqPDLPPpkfKHRLARs2iJ01ZMC1pH0CBcF71d/v5XpUYl5eVnQyYZCcUnOlJDpHWD5aebTidkD3D1k/+LPSL6i7FFtBOig79BDoxAjIICY18WZBdOq5VEZedD/nuuwdHOmM7XTkK99FKfYqbLouCuRszI3EkWvsCfaU4Uobz3ISNIrGCSpNw6v2bMtncCvQpQ33Iiix4nT5XwF3i6oCqfxUmlRiB9mMo5hWRtGEMAiguc2haWHLoFIc0367eOkn5+aqDF8Ga6tOIyYjtaYWxz6pngWaarwo6FgNZ/BfVG31vKY=
+#       bucket: paul-kreichauf.com
+#       local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
+#       skip_cleanup: true
+#       on:
+#         condition: $BUILD_DIR = packages/website
+#         branch: master
+#         repo: kaesepowl/paul-kreichauf.com
