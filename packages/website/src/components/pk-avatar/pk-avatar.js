@@ -9,7 +9,7 @@ class PKAvatar extends LitElement {
 	}
 
 	buildPathByName(name) {
-		return `/src/assets/avatar/${name.toLowerCase()}.jpg`;
+		return `/src/assets/avatar/${name.toLowerCase()}.png`;
 	}
 
 	render() {

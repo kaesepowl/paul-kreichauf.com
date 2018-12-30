@@ -55,7 +55,7 @@ class PKAnimate extends LitElement {
 		return html`
 			<link
 				rel="stylesheet"
-				href="/node_modules/animate.css/animate.css"
+				href="/node_modules/animate.css/animate.min.css"
 			/>
 			<style>
 				:host {

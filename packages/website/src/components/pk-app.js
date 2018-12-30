@@ -9,6 +9,7 @@ import "./pk-page-home/pk-page-home";
 import { PKConnectedElement } from "./pk-connected-element/pk-connected-element";
 import { navigate } from "../actions/app";
 import { getAppPage } from "../selectors/app";
+import { setTitleByPage } from "../functions/setTitleByPage";
 //
 class PKApp extends PKConnectedElement {
 	static get properties() {
@@ -21,6 +22,12 @@ class PKApp extends PKConnectedElement {
 		installRouter(location =>
 			this.dispatchAction(navigate(decodeURIComponent(location.pathname)))
 		);
+	}
+
+	updated(changedProps) {
+		if (changedProps.has("page")) {
+			setTitleByPage(this.page, document);
+		}
 	}
 
 	stateChanged(state) {

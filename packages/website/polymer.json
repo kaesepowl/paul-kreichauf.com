@@ -2,12 +2,13 @@
 	"entrypoint": "index.html",
 	"shell": "src/components/pk-app.js",
 	"sources": [
+		"icons/**",
 		"src/assets/**",
 		"node_modules/line-awesome/**",
 		"node_modules/reset-css/reset.css",
-		"node_modules/animate.css/**",
-		"node_modules/simplebar/dist/**",
-		"node_modules/showdown/dist/**"
+		"node_modules/animate.css/animate.min.css",
+		"node_modules/simplebar/dist/simplebar.min.**",
+		"node_modules/showdown/dist/showdown.min.js"
 	],
 	"extraDependencies": ["node_modules/@webcomponents/webcomponentsjs/**"],
 	"lint": {
