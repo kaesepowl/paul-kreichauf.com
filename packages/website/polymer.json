@@ -5,7 +5,9 @@
 		"src/assets/**",
 		"node_modules/line-awesome/**",
 		"node_modules/reset-css/reset.css",
-		"node_modules/animate.css/**"
+		"node_modules/animate.css/**",
+		"node_modules/simplebar/dist/**",
+		"node_modules/showdown/dist/**"
 	],
 	"extraDependencies": ["node_modules/@webcomponents/webcomponentsjs/**"],
 	"lint": {
