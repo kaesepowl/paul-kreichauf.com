@@ -18,7 +18,6 @@ deploy:
     secret_access_key:
         secure: BCDIVOHmeUBBBjQN4E5nHNDVlCq7XuzOV7P2X90xwBbTsDZ6ViIrF6l/naD35sGfgjG1JWiJiwBMRkTvCeVkdxLa2ine0lchMh/r/7Bqjbmss5fEY4x63xSGouZYhE6KDrW53VVzViTeagjuHOjAvkULyNUJ9HfqMn3+DOd7cWqpaxXCQOMJ/w+dKxsyjqwV9/UTe0ZlBoO1KN+mwBHDBmBOoxEs6UUR4ABIh2Tk6XRSRy+WyLLLZdi2+3VMDSPB8ISO5KDTcoIgxeXQs5PQPzAG6Ugom0Yk8hhMcCzL7tzqECTC8wyTM8pk6qpF+IVspsOFgQVk7gA7FpOeM1DzWsbh9i6xkgzSzIfon+9Tkx8MxqHwQar3LnjmwQ5PsdIGSJHtflan9vX0IZJqmceTK3yOBLpQWUoUyvjDk6hO4+5UOPKW1Pz+Fy1JxjRLYZX97ikHJpyYbrg1rJ14AsAuJxMMDmpl+mNgO9yDsakOx4LjKf33qmQG4FrUMu5TMdceEsDiOn5RF7S4E/0hqSuCed43p6xUw4Rs7rLnh23Qvz2scjlvwcjukPiIpkePLI2Dc8LrXUjFsX+6SRyReSXlffZrwASGqbi8YPbfFvYkmtQjQnywYpIzivUqjEv+febFt+NRxQIOmruobougUynhR02yppzVjcCA9mr7yTvCZ1U=
     bucket: paul-kreichauf.com
-    acl: ""
     local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
     skip_cleanup: true
     on:
