@@ -8,7 +8,6 @@ class PKContentFilterGroup extends LitElement {
 			${sharedStyle}
 			<style>
 				:host {
-					text-align: right;
 					margin-top: 25px;
 					margin-bottom: -25px;
 				}

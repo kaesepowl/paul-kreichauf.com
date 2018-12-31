@@ -96,7 +96,7 @@ class PKPagePortfolio extends PKPage {
 					margin-bottom: 15px;
 				}
 				pk-content-filter-group pk-link {
-					margin-left: 15px;
+					margin-right: 15px; 
 					font-weight: 600;
 				}
 				@media (max-width: 768px) {
