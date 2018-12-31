@@ -1,5 +1,7 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
+import sharedStyle from "../../styles/shared";
+//
 class PkContentButton extends LitElement {
 	static get properties() {
 		return {
@@ -25,12 +27,9 @@ class PkContentButton extends LitElement {
 	render() {
 		const { icon, hideCaption } = this;
 		return html`
+			${sharedStyle}
 			<style>
-				* {
-					box-sizing: border-box;
-				}
 				:host {
-					box-sizing: border-box;
 					display: inline-block;
 					margin: 0 5px;
 				}
@@ -38,12 +37,13 @@ class PkContentButton extends LitElement {
 					font-weight: bold;
 					text-decoration: none;
 					height: 45px;
-					min-width: 44px;
-					line-height: 45px;
+					min-width: 45px;
+					line-height: 52px;
 					text-align: center;
 					display: inline-block;
-					border-radius: 48px;
+					border-radius: 50px;
 					transition: 0.5s;
+
 					/* THEME LIGHT */
 					border: 1px solid #e5e5e5;
 					color: #444;
@@ -55,7 +55,7 @@ class PkContentButton extends LitElement {
 					background-color: #0078d4;
 				}
 				span {
-					padding: 0 23px;
+					padding: 0 24px;
 					position: relative;
 					top: -4px;
 					/* THEME LIGHT */
