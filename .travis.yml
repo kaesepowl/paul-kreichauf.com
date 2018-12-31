@@ -20,7 +20,7 @@ deploy:
   bucket: paul-kreichauf.com
   local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
   region: eu-central-1
-  # skip_cleanup: true
+  skip_cleanup: true
   default_text_charset: utf-8
   on:
     condition: "$BUILD_DIR = packages/website"
