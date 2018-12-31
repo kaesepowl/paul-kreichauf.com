@@ -12,11 +12,12 @@ script:
     - yarn install
     - yarn build:static
     - PACKAGE_VERSION=$(node -p "require('./package.json').version")
+
 deploy:
     provider: s3
     access_key_id: AKIAJOECBXHYJ2JYCJSA
     secret_access_key:
-        secure: vcIzbA1cDKxHhLuCX9m9FwIwmmqnf+3Hl3dSe+yBE6ECCXXkAiM0k5DdiMaYQxESCnSl9U9UP1sZ3DQVKTtsCcdmX4UHQlyUZVQILGA8WqCqNeSoNvisHXC1ayBJpcv8R3dUaX8Ev4EXZkd4jmM3OTw2sMU2g4mmxK+atgcPgTDCAIGEuWG7R9zqQPm7iqSkpAzfDglaL+zs0GC/c7P7QwziM6OHoygMXk/CBK+LU8/rFJMLUCb62mbs8pZb6rmla7Wh4qWz/WNTBscIMdSQG2x2baTm1XpRBKMbMPDhnGkdstFp9+RY9n3+fgMiDOmUPRLpJC1H62N2YGUekCClqKHfYed4oNPUH55Gt9rplj7hYOaSxSjH360CZDf1VJ/xZ5XcastEY3GXvSb/srxGbTJbBeyF4ZK+tIvmXrho1DzxrzxIefZVWHkOoVrUvJbHxHmHkSyTjlF215ESJpj3ppfLP2FJbgXZYBD0TefwTWumYp2pdlkKPugI55GNfq3tjJHdnBPQKWfznYkHPObw12qlDnR3jESvS2WcxWhDOsD92sGMjOq+6Ast5Zf8PUI3LoubOITG9/8vx94UlybP0sUI5dE9S1Rrt+qYEo6lET5inLNgVRfEOc+6tOisvYUjk4Pg7Mp6LQ/tWIEQI8sCI38UUIZa91ymRcacdAbWD18=
+        secure: s7RZp+JorvlcvBPHTPv8hZ++Oy8g7BlYKvyPQ0H5NhJg/yTfHeSAWxVgWgvSKk6Ekz5DjpvmZo6kVkvxmmDmJXhrItUVHLgU3m1O7qLoarPMw7D8G1f0bavembliMt9lD3/A1+DduyDIDhwlm5SSAozx8eWK/iG3UOgd+KsUZiFIeo0QYOINp+yAa0lInuXq0bxz5tID8yiKBrG087kU2XcKpRuhnWylhfBNJNcm0oneEXKChlH1LszxhQ8W5XdY3XRULicaYp4FB4ORnlW31pT4Iq4Rg4dFeleF2Jli9r2wPpXIz1x+lw+WTXrrngIea9yQZNMcCORAxiqYnKtSZgn5WUsRV9Pf85bHlPfCFYtN97Zz4Y+UfmoWJ+byEpxEMOdI4s3QjEc6FY4Po8Qth1EZarfKQTW1tDgBUDV5Z+Iw7cKQC+Emsu73aOa3V9vPf7UuMo8xoUCVUPK8J5o+Qotni1UMmhJmb1tVIpldpJOzz/o4ra4iZDD2hZUU+pWzRKHq0EtpPqVHAJ9zShtU5Zn5EeSQfHKtbjmU/cH3AKFhZvYxuSn6dArMj/rs4aqUOS0tI8lgS+oo1PmCcaDWSXMsL8WZLe7iM9kktGwT2vBxSQ48YCmdbZNmSMYmCGdd61OwdkzrcnG18RJSAz8aY7PPPwfVhz8+Ryq8zOwIUew=
     bucket: paul-kreichauf.com
     local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
     region: eu-central-1
