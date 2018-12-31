@@ -27,18 +27,22 @@ class PKPageAbout extends PKPage {
 					Download CV
 				</pk-content-button>
 				<pk-content-button
+					link="https://facebook.com/kaesepowl"
 					icon="facebook"
 					hideCaption
 				></pk-content-button>
 				<pk-content-button
+					link="https://youtube.com/kaesepowl"
 					icon="youtube"
 					hideCaption
 				></pk-content-button>
 				<pk-content-button
+					link="https://soundcloud.com/kaesepowl"
 					icon="soundcloud"
 					hideCaption
 				></pk-content-button>
 				<pk-content-button
+					link="https://github.com/kaesepowl"
 					icon="github"
 					hideCaption
 				></pk-content-button>

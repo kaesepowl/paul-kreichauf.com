@@ -6,6 +6,7 @@ class PkContentButton extends LitElement {
 	static get properties() {
 		return {
 			icon: { type: String },
+			link: { type: String },
 			hideCaption: { type: Boolean, reflect: true }
 		};
 	}
@@ -25,7 +26,7 @@ class PkContentButton extends LitElement {
 	}
 
 	render() {
-		const { icon, hideCaption } = this;
+		const { icon, hideCaption, link } = this;
 		return html`
 			${sharedStyle}
 			<style>
@@ -73,7 +74,7 @@ class PkContentButton extends LitElement {
 					top: 4px;
 				}
 			</style>
-			<a href="javascript:;">
+			<a href=${link} target="_blank">
 				${
 					hideCaption
 						? this.renderIcon(icon)
