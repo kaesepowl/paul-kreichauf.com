@@ -4,6 +4,7 @@
 	"sources": [
 		"icons/**",
 		"src/assets/**",
+		"src/data/**",
 		"node_modules/line-awesome/**",
 		"node_modules/reset-css/reset.css",
 		"node_modules/animate.css/animate.min.css",
