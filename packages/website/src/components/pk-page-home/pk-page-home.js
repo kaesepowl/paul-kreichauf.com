@@ -1,5 +1,6 @@
 import { html, LitElement } from "@polymer/lit-element";
-import { PKPage } from "../pk-page/pk-page";
+//
+import "../pk-translate/pk-translate";
 //
 class PKPageHome extends LitElement {
 	static get properties() {
@@ -54,13 +55,16 @@ class PKPageHome extends LitElement {
 					display: table-cell;
 					vertical-align: middle;
 				}
-				.title {
+				pk-translate {
+					display: block;
+				}
+				pk-translate[key="home_title"] {
 					line-height: 1.5em;
 					font-size: 64px;
 					font-weight: 600;
 					color: rgba(255, 255, 255, 0.85);
 				}
-				.subtitle {
+				pk-translate[key="home_sub_title"] {
 					font-size: 24px;
 					color: rgba(255, 255, 255, 0.85);
 				}
@@ -82,8 +86,8 @@ class PKPageHome extends LitElement {
 
 			<div class="content">
 				<div>
-					<div class="title">Paul Kreichauf</div>
-					<span class="subtitle">Developer, Gamer and DJ</span>
+					<pk-translate key="home_title"></pk-translate>
+					<pk-translate key="home_sub_title"></pk-translate>
 				</div>
 			</div>
 			<div class="bg"></div>

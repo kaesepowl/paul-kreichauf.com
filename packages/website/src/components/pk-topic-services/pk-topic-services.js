@@ -28,48 +28,48 @@ class PKTopicServices extends LitElement {
 			</style>
 			<pk-card>
 				<pk-icon type="code" slot="icons"></pk-icon>
-				<span slot="name">Development</span>
-				<span slot="desc"
-					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</span
-				>
+				<span slot="name">Web Development</span>
+				<span slot="desc">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</span>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="rotate-right" slot="icons"></pk-icon>
-				<span slot="name">Agile</span>
-				<span slot="desc"
-					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</span
-				>
+				<span slot="name">Agile Methods</span>
+				<span slot="desc">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</span>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="cloud" slot="icons"></pk-icon>
 				<span slot="name">Cloud Architecture</span>
-				<span slot="desc"
-					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</span
-				>
+				<span slot="desc">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</span>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="futbol-o" slot="icons"></pk-icon>
 				<span slot="name">Foosball&reg; Training</span>
-				<span slot="desc"
-					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</span
-				>
+				<span slot="desc">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</span>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="music" slot="icons"></pk-icon>
-				<span slot="name">DJing</span>
-				<span slot="desc"
-					>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-					sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.</span
-				>
+				<span slot="name">Mxing Music</span>
+				<span slot="desc">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+					do eiusmod tempor incididunt ut labore et dolore magna
+					aliqua.
+				</span>
 			</pk-card>
 		`;
 	}

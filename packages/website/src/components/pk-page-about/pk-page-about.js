@@ -17,7 +17,7 @@ class PKPageAbout extends PKPage {
 		const content = html`
 			<pk-content-title>ABOUT ME</pk-content-title>
 			<pk-content-desc>
-				<b>Hi, I'm John Sensitive</b>, invidunt sed labore eirmod ea et,
+				<b>Hi, I'm Paul Kreichauf</b>, invidunt sed labore eirmod ea et,
 				dolor sit sea et est diam lorem sed. Est rebum lorem sed at
 				consetetur et eirmod. I'm good at html, css, wordpress, .net
 				core, jquery, bootstrap, angularjs.

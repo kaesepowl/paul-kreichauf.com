@@ -1,6 +1,7 @@
 import { html } from "@polymer/lit-element";
 //
 import { installRouter } from "pwa-helpers/router";
+import loadTranslation from "../i18n";
 //
 import "./pk-modal/pk-modal";
 import "./pk-header/pk-header";
@@ -10,6 +11,7 @@ import { PKConnectedElement } from "./pk-connected-element/pk-connected-element"
 import { navigate } from "../actions/app";
 import { getAppPage } from "../selectors/app";
 import { setTitleByPage } from "../functions/setTitleByPage";
+import { i18nLoadTranslation, i18nSetCurrent } from "../actions/i18n";
 //
 class PKApp extends PKConnectedElement {
 	static get properties() {
@@ -22,6 +24,10 @@ class PKApp extends PKConnectedElement {
 		installRouter(location =>
 			this.dispatchAction(navigate(decodeURIComponent(location.pathname)))
 		);
+		loadTranslation("de").then(translation => {
+			this.dispatchAction(i18nLoadTranslation("de", translation));
+			this.dispatchAction(i18nSetCurrent("de"));
+		});
 	}
 
 	updated(changedProps) {
