@@ -1,28 +1,27 @@
 language: node_js
 node_js:
-- node
+    - node
 cache:
-  yarn: true
-  directories:
-  - node_modules
+    yarn: true
+    directories:
+        - node_modules
 env:
-- BUILD_DIR=packages/website
+    - BUILD_DIR=packages/website
 script:
-- cd $BUILD_DIR
-- yarn install
-- yarn build:static
-- PACKAGE_VERSION=$(node -p "require('./package.json').version")
+    - cd $BUILD_DIR
+    - yarn install
+    - yarn build:static
+    - PACKAGE_VERSION=$(node -p "require('./package.json').version")
 deploy:
-  provider: s3
-  access_key_id: AKIAJOECBXHYJ2JYCJSA
-  secret_access_key:
-    secure: rpGsRv2TMPiRTOkmqbfM1K5ayzto7udfByDQcNH12gpPxw7zAbADh2OdzaYwABVhMObx5VAJ4WnVKtMSLtktup97Xhe8AKJmfKFz+RRWKOOj9SF8KT9FwJ0QgeYNNn7CrUHaEH7L2J6b/Pb5aNRRQbku7HG9+gLOAY8eahAQU9IED4IuDNlE8nVbDrMaKSqQ0N29d62/VgdpEh02b3xwkfQgPdC3yW34xghPoD+J6kHnTyfy9sDbn5KsTPec4XvS2Mc2Z9OCC6U0p2vTGZ+TZko1UgHskRgU/QYEwfdlo3la30K9e0efkkNR/Kd5gaLBG/4ZhoqHbFYvgpjpOarP3+a6E/rINU3igYzQGNU5yw0rNFYRhUznAkcS1H60+t4idk8BTmXQkeNw3e/oiePHInRObE35nThxO31jRH+Atdf/ZL3PcECe+/jkdVa1oLdCFlCW0Dus2y7TKGwp/Jfsp4iUl70CxGRBQOKWCYGzYRLcP1bTpLRW3HdqPTxOL1iriVNBuuQwtEefc+y5EnwymfHaxIjbuWq3pWlYNAnp1ByLOjqt88rHs8P1ISsw4UM6HLRxhicplfjJec2Gd8arWALDWTu/X/Z7pE2q6j1ZgkFdWR0DF+F9QYb1DzieVaRLjSTR1AREWFWvTCMpNkcF2phqoOvhYgK7UsIsUMpp4fM=
-  bucket: paul-kreichauf.com
-  local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
-  region: eu-central-1
-  skip_cleanup: true
-  default_text_charset: utf-8
-  on:
-    condition: "$BUILD_DIR = packages/website"
-    branch: master
-    repo: kaesepowl/paul-kreichauf.com
+    provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: paul-kreichauf.com
+    local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
+    region: eu-central-1
+    skip_cleanup: true
+    default_text_charset: utf-8
+    on:
+        condition: "$BUILD_DIR = packages/website"
+        branch: master
+        repo: kaesepowl/paul-kreichauf.com
