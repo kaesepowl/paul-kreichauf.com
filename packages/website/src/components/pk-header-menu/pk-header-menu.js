@@ -4,7 +4,6 @@ import { PKConnectedElement } from "../pk-connected-element/pk-connected-element
 import "../pk-menu/pk-menu";
 import "../pk-menu-item/pk-menu-item";
 import { getAppPage } from "../../selectors/app";
-import { getHeaderMenuItems } from "../../selectors/header";
 import { getNavigationOpen } from "../../selectors/navigation";
 //
 class PKHeaderMenu extends PKConnectedElement {
@@ -18,13 +17,43 @@ class PKHeaderMenu extends PKConnectedElement {
 
 	constructor() {
 		super();
-		this.items = [];
+		this.items = [
+			{
+				caption: "navigation_home",
+				page: "home",
+				icon: "home"
+			},
+			{
+				caption: "navigation_about_me",
+				page: "about",
+				icon: "user"
+			},
+			{
+				caption: "navigation_resume",
+				page: "resume",
+				icon: "file-text"
+			},
+			{
+				caption: "navigation_portfolio",
+				page: "portfolio",
+				icon: "briefcase"
+			},
+			{
+				caption: "navigation_blog",
+				page: "blog",
+				icon: "newspaper-o"
+			},
+			{
+				caption: "navigation_contact",
+				page: "contact",
+				icon: "envelope"
+			}
+		];
 		this.activePage = "home";
 		this.open = false;
 	}
 
 	stateChanged(state) {
-		this.items = getHeaderMenuItems(state);
 		this.activePage = getAppPage(state);
 		this.open = getNavigationOpen(state);
 	}

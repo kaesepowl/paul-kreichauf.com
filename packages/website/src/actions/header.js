@@ -1,1 +1,0 @@
-export const HEADER_MENU_ITEM_ADD = "HEADER_MENU_ITEM_ADD";

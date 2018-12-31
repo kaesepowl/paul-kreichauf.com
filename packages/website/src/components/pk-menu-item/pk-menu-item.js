@@ -4,6 +4,7 @@ import sharedStyle from "../../styles/shared";
 //
 import "../pk-link/pk-link";
 import "../pk-icon/pk-icon";
+import "../pk-translate/pk-translate";
 //
 class PKMenuItem extends LitElement {
 	static get properties() {
@@ -37,7 +38,7 @@ class PKMenuItem extends LitElement {
 	renderCaption(caption) {
 		if (caption && this.hideCaption === false) {
 			return html`
-				<div>${caption}</div>
+				<pk-translate key=${caption}></pk-translate>
 			`;
 		}
 		return ``;
@@ -66,7 +67,7 @@ class PKMenuItem extends LitElement {
 					background-color: #d0d0d0;
 				}
 
-				div {
+				pk-translate {
 					line-height: 24px;
 					min-width: 75px;
 					position: absolute;
@@ -92,7 +93,7 @@ class PKMenuItem extends LitElement {
 					background-color: #222;
 					color: #878d99;
 				}
-				:host(:hover) div {
+				:host(:hover) pk-translate {
 					opacity: 1;
 					visibility: visible;
 				}
@@ -121,7 +122,7 @@ class PKMenuItem extends LitElement {
 						border-bottom: 3px solid #0078d4;
 						border-left: 0;
 					}
-					div {
+					pk-translate {
 						display: none;
 					}
 				}

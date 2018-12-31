@@ -5,7 +5,6 @@ import "./actions/blog";
 //
 import { app } from "./reducers/app";
 import { blog } from "./reducers/blog";
-import { header } from "./reducers/header";
 import { i18n } from "./reducers/i18n";
 import { modal } from "./reducers/modal";
 import { navigation } from "./reducers/navigation";
@@ -14,7 +13,7 @@ import { portfolio } from "./reducers/portfolio";
 const devCompose = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 //
 export const store = createStore(
-	combineReducers({ app, blog, header, i18n, modal, navigation, portfolio }),
+	combineReducers({ app, blog, i18n, modal, navigation, portfolio }),
 	devCompose(applyMiddleware(thunk))
 );
 //
