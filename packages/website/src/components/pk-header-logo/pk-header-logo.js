@@ -29,9 +29,24 @@ class PKHeaderLogo extends LitElement {
 					position: relative;
 					margin-bottom: 1px;
 				}
+
+				:host:after {
+					content: " ";
+					position: absolute;
+					left: 10px;
+					bottom: 0;
+					width: calc(100% - 20px);
+					height: 1px;
+
+					/* THEME LIGHT */
+					background-color: #ccc;
+				}
 				@media (max-width: 1023px) {
 					:host {
 						padding: 7px 0 7px 8px;
+					}
+					:host:after {
+						display: none;
 					}
 				}
 			</style>

@@ -38,7 +38,6 @@ class PKHeaderMenu extends PKConnectedElement {
 				path=${`/${page}`}
 				icon=${icon}
 				?active=${page === activePage}
-				?hideCaption=${true}
 			></pk-menu-item>
 		`;
 	}

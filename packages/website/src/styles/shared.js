@@ -2,13 +2,13 @@ import { html } from "@polymer/lit-element";
 
 export default html`
 	<style>
+		*,
+		::after,
+		::before {
+			box-sizing: border-box;
+		}
 		:host {
 			display: block;
-		}
-		:host * {
-			box-sizing: border-box;
-			text-size-adjust: 100%;
-			line-height: 1.5em;
 		}
 	</style>
 `;

@@ -72,6 +72,7 @@ class PKApp extends PKConnectedElement {
 					width: calc(100% - 60px);
 					height: calc(100% - 60px);
 					max-width: 1240px;
+					transition: 1s;
 				}
 
 				@media (max-width: 1023px) {

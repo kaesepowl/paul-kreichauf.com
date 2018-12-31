@@ -58,11 +58,12 @@ export class PKPage extends PKConnectedElement {
 		return html`
 			<style>
 				:host {
-					display: block;
+					display: none !important;
 					opacity: 0;
 				}
 
 				:host([visible]) {
+					display: block !important;
 					opacity: 1;
 				}
 			</style>
