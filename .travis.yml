@@ -1,28 +1,27 @@
 language: node_js
 node_js:
-    - node
+- node
 cache:
-    yarn: true
-    directories:
-        - node_modules
+  yarn: true
+  directories:
+  - node_modules
 env:
-    - BUILD_DIR=packages/website
+- BUILD_DIR=packages/website
 script:
-    - cd $BUILD_DIR
-    - yarn install
-    - yarn build:static
-    - PACKAGE_VERSION=$(node -p "require('./package.json').version")
-
+- cd $BUILD_DIR
+- yarn install
+- yarn build:static
+- PACKAGE_VERSION=$(node -p "require('./package.json').version")
 deploy:
-    provider: s3
-    access_key_id: AKIAJOECBXHYJ2JYCJSA
-    secret_access_key:
-        secure: s7RZp+JorvlcvBPHTPv8hZ++Oy8g7BlYKvyPQ0H5NhJg/yTfHeSAWxVgWgvSKk6Ekz5DjpvmZo6kVkvxmmDmJXhrItUVHLgU3m1O7qLoarPMw7D8G1f0bavembliMt9lD3/A1+DduyDIDhwlm5SSAozx8eWK/iG3UOgd+KsUZiFIeo0QYOINp+yAa0lInuXq0bxz5tID8yiKBrG087kU2XcKpRuhnWylhfBNJNcm0oneEXKChlH1LszxhQ8W5XdY3XRULicaYp4FB4ORnlW31pT4Iq4Rg4dFeleF2Jli9r2wPpXIz1x+lw+WTXrrngIea9yQZNMcCORAxiqYnKtSZgn5WUsRV9Pf85bHlPfCFYtN97Zz4Y+UfmoWJ+byEpxEMOdI4s3QjEc6FY4Po8Qth1EZarfKQTW1tDgBUDV5Z+Iw7cKQC+Emsu73aOa3V9vPf7UuMo8xoUCVUPK8J5o+Qotni1UMmhJmb1tVIpldpJOzz/o4ra4iZDD2hZUU+pWzRKHq0EtpPqVHAJ9zShtU5Zn5EeSQfHKtbjmU/cH3AKFhZvYxuSn6dArMj/rs4aqUOS0tI8lgS+oo1PmCcaDWSXMsL8WZLe7iM9kktGwT2vBxSQ48YCmdbZNmSMYmCGdd61OwdkzrcnG18RJSAz8aY7PPPwfVhz8+Ryq8zOwIUew=
-    bucket: paul-kreichauf.com
-    local_dir: ${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled
-    region: eu-central-1
-    skip_cleanup: true
-    on:
-        condition: $BUILD_DIR = packages/website
-        branch: master
-        repo: kaesepowl/paul-kreichauf.com
+  provider: s3
+  access_key_id: AKIAJOECBXHYJ2JYCJSA
+  secret_access_key:
+    secure: EEzXiOWRio15kxPAmpfaGr0weS7lakAJV5MbcthIaDEYGlO6zk8ZhEUtAGIshmYhmRlLhONn5XVH5CLWx+FPsaI5jK/waEDO/Urz7nqhgzAVL9bzs0FKwt7JZctSN3OgD7YIPF/swfDFUiF5B4+Wk+0v//uH5z61G4uE+yAQ1M4WDI72dSW9jwnA7KEGpeCQXNqXFMis+XLmIQTcIsgiyShnax0FWOs+KJUL4O/ZD/Ii92RHIiZJupsiOppC7Q1UybAviKbZvXn5zJ5dpZCtWZ91fP01RgsrxzVQ3XhUGslQdeTiYhOeENW1ImEaKS9n98DiJZDU6aUHs7CuCGUFNCD0KOxR5zfYR9gD/+Yj2AvkCkwaPIR4yqy2kJF6KuPakosT+uyq19p2DnGdYVNgo+Icw7KBWFV056ir+UTUXOXGiRXGmlwlj40pco3iQFJN6OaratF9yrlvotnwWQOGowRa/7CdsDwt3PwRXjWgvLSl7FgE0XaV9K4IupnT9baiRVR8PdSjcbLzF1dM6ZQB2e87cC85c+GQOt4LtmZJqQLFzUTZ/iUOkVSh+AQ0wRAY8X1jIOOg6iPdeMnIUgnIbHNZbR/evN/HZXBLNUlEj5TtVcrlHuGCXIKTRTsJDU8J0NriguCubAEZbH6+bq66+mf75yZ1shWZx7iANA+DtEk=
+  bucket: paul-kreichauf.com
+  local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
+  region: eu-central-1
+  skip_cleanup: true
+  on:
+    condition: "$BUILD_DIR = packages/website"
+    branch: master
+    repo: kaesepowl/paul-kreichauf.com
