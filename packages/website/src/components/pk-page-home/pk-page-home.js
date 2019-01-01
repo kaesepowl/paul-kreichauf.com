@@ -19,7 +19,7 @@ class PKPageHome extends LitElement {
 					width: 100%;
 					height: 100%;
 					background-size: cover;
-					background: url(/src/assets/images/dev.jpg);
+					background: url(/src/assets/images/background.${Modernizr.webp ? "webp" : "jpg"});
 					background-repeat: no-repeat;
 					-moz-transition: 0.5s;
 					-o-transition: 0.5s;
