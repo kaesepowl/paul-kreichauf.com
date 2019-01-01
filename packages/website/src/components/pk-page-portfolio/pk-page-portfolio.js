@@ -13,6 +13,7 @@ import "../pk-card/pk-card-new";
 import "../pk-link/pk-link";
 import "../pk-link-icon/pk-link-icon";
 import "../pk-hover-zoom-in/pk-hover-zoom-in";
+import "../pk-translate/pk-translate";
 //
 import { getAppPage, getAppSubPages } from "../../selectors/app";
 import { getPortfolioItems } from "../../selectors/portfolio";
@@ -96,7 +97,7 @@ class PKPagePortfolio extends PKPage {
 					margin-bottom: 15px;
 				}
 				pk-content-filter-group pk-link {
-					margin-right: 15px; 
+					margin-right: 15px;
 					font-weight: 600;
 				}
 				@media (max-width: 768px) {
@@ -107,28 +108,41 @@ class PKPagePortfolio extends PKPage {
 					}
 				}
 			</style>
-			<pk-content-title>PORTFOLIO</pk-content-title>
-			<pk-content-desc> My <b>Best Works</b> </pk-content-desc>
+			<pk-content-title>
+				<pk-translate key="page_portfolio_title"></pk-translate>
+			</pk-content-title>
+			<pk-content-desc>
+				<pk-translate key="page_portfolio_desc"></pk-translate>
+			</pk-content-desc>
 			<pk-content-filter-group>
 				<pk-link path=${`/${page}`} ?active=${filter === null}>
-					All
+					<pk-translate
+						key="page_portfolio_filter_all"
+					></pk-translate>
 				</pk-link>
 				<pk-link
 					path=${`/${page}/coding`}
 					?active=${filter === "coding"}
-					>Coding</pk-link
 				>
+					<pk-translate
+						key="page_portfolio_filter_projects"
+					></pk-translate>
+				</pk-link>
 				<pk-link
 					path=${`/${page}/mixes-audio`}
 					?active=${filter === "mixes-audio"}
 				>
-					Mixes Audio
+					<pk-translate
+						key="page_portfolio_filter_mixes_audio"
+					></pk-translate>
 				</pk-link>
 				<pk-link
 					path=${`/${page}/mixes-video`}
 					?active=${filter === "mixes-video"}
 				>
-					Mixes Video
+					<pk-translate
+						key="page_portfolio_filter_mixes_video"
+					></pk-translate>
 				</pk-link>
 			</pk-content-filter-group>
 			${this.renderItems(items, filter)}
