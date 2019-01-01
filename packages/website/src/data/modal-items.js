@@ -10,7 +10,7 @@ export const getModalItems = () => {
 			id: "portfolio-imperion",
 			type: "portfolio-imperion",
 			tag: PORTFOLIO_TAG_CODING,
-			img: "/src/assets/images/portfolio/coding/imperion.jpg",
+			img: "/src/assets/images/portfolio/coding/imperion",
 			title: "Imperion",
 			subTitle: "Travian Games GmbH"
 		},
@@ -18,7 +18,7 @@ export const getModalItems = () => {
 			id: "portfolio-screener",
 			type: "portfolio-screener",
 			tag: PORTFOLIO_TAG_CODING,
-			img: "/src/assets/images/portfolio/coding/screener.jpg",
+			img: "/src/assets/images/portfolio/coding/screener",
 			title: "Screener",
 			subTitle: "financial.com"
 		},
@@ -26,7 +26,7 @@ export const getModalItems = () => {
 			id: "portfolio-charting",
 			type: "portfolio-charting",
 			tag: PORTFOLIO_TAG_CODING,
-			img: "/src/assets/images/portfolio/coding/charting.jpg",
+			img: "/src/assets/images/portfolio/coding/charting",
 			title: "Interactive Charting",
 			subTitle: "financial.com"
 		},
@@ -34,7 +34,7 @@ export const getModalItems = () => {
 			id: "portfolio-tonic",
 			type: "portfolio-tonic",
 			tag: PORTFOLIO_TAG_CODING,
-			img: "/src/assets/images/portfolio/coding/tonic.jpg",
+			img: "/src/assets/images/portfolio/coding/tonic",
 			title: "Tonic.",
 			subTitle: "Team Internet AG"
 		},
@@ -42,7 +42,7 @@ export const getModalItems = () => {
 			id: "portfolio-tipp-game",
 			type: "portfolio-tipp-game",
 			tag: PORTFOLIO_TAG_CODING,
-			img: "/src/assets/images/portfolio/coding/tipp-game.jpg",
+			img: "/src/assets/images/portfolio/coding/tipp-game",
 			title: "Tipp Game",
 			subTitle: "Freelance"
 		},

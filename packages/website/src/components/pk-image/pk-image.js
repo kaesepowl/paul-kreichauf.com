@@ -8,8 +8,32 @@ class PKImage extends LitElement {
 			src: { type: String }
 		};
 	}
+
+	renderPicture(src) {
+		return html`
+			<picture>
+				<source srcset=${`${src}.webp`} type="image/webp" />
+				<source srcset=${`${src}.jpg`} type="image/jpeg" />
+				${this.renderImg(src)}
+			</picture>
+		`;
+	}
+
+	renderImg(src) {
+		return html`
+			<img src=${src} />
+		`;
+	}
+
+	hasFileExtension(src) {
+		return /[.]{1}/.test(src);
+	}
+
 	render() {
 		const { src } = this;
+		const content = this.hasFileExtension(src)
+			? this.renderImg(src)
+			: this.renderPicture(src);
 		return html`
 			${sharedStyle}
 			<style>
@@ -17,16 +41,12 @@ class PKImage extends LitElement {
 					display: block;
 					max-width: 100%;
 				}
-				picture img {
+				img {
 					display: block;
 					max-width: 100%;
 				}
 			</style>
-			<picture>
-				<source srcset=${`${src}.webp`} type="image/webp" />
-				<source srcset=${`${src}.jpg`} type="image/jpeg" />
-				<img src=${`${src}.jpg`}>
-			</picture>
+			${content}
 		`;
 	}
 }
