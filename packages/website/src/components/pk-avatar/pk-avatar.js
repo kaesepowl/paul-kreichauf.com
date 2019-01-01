@@ -1,5 +1,7 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
+import "../pk-image/pk-image";
+//
 class PKAvatar extends LitElement {
 	static get properties() {
 		return {
@@ -9,7 +11,7 @@ class PKAvatar extends LitElement {
 	}
 
 	buildPathByName(name) {
-		return `/src/assets/avatar/${name.toLowerCase()}.png`;
+		return `/src/assets/avatar/${name.toLowerCase()}`;
 	}
 
 	render() {
@@ -76,14 +78,16 @@ class PKAvatar extends LitElement {
 						color: #666 !important;
 					}
 				}
-				img {
+				pk-image {
 					display: block;
 					width: 36px;
 					height: 36px;
 					border-radius: 50%;
+					overflow: hidden;
 				}
 			</style>
-			<img src=${this.buildPathByName(name)} /> <span>${caption}</span>
+			<pk-image src=${this.buildPathByName(name)}></pk-image>
+			<span>${caption}</span>
 		`;
 	}
 }

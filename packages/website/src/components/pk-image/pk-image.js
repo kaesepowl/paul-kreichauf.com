@@ -14,7 +14,7 @@ class PKImage extends LitElement {
 			<picture>
 				<source srcset=${`${src}.webp`} type="image/webp" />
 				<source srcset=${`${src}.jpg`} type="image/jpeg" />
-				${this.renderImg(src)}
+				<img src=${`${src}.jpg`} />
 			</picture>
 		`;
 	}
