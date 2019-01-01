@@ -12,6 +12,7 @@ class PKCardFooter extends LitElement {
 					text-align: center;
 					padding: 10px 0;
 					background-color: #d0d0d0;
+					overflow: hidden;
 				}
 				.title,
 				.subTitle {

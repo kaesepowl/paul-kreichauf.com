@@ -12,36 +12,20 @@ import "../pk-topic-skills-coding/pk-topic-skills-coding";
 import "../pk-topic-skills-infrastructure/pk-topic-skills-infrastructure";
 //
 class PKPageResume extends PKPage {
-
 	render() {
 		const content = html`
-			${sharedStyle}
-			<style>
-				pk-content-container {
-					display: grid;
-					grid-template-columns: 1fr 1fr;
-					grid-column-gap: 30px;
-					grid-row-gap: 0px;
-					justify-items: stretch;
-					align-items: stretch;
-					grid-template-areas: "Title Title" "Desc Desc";
-				}
-				pk-content-title {
-					grid-area: Title;
-				}
-				pk-content-desc {
-					grid-area: Desc;
-				}
-			</style>
-			<pk-content-title>RESUME</pk-content-title>
+			${sharedStyle} <style></style>
+			<pk-content-title>
+				<pk-translate key="page_resume_title"></pk-translate>
+			</pk-content-title>
 			<pk-content-desc>
-				Over <b>10 Years</b> of Experience
+				<pk-translate key="page_resume_desc"></pk-translate>
 			</pk-content-desc>
-			<pk-content-group title="Education">
-				<pk-topic-education></pk-topic-education>
-			</pk-content-group>
 			<pk-content-group title="Experience">
 				<pk-topic-experience></pk-topic-experience>
+			</pk-content-group>
+			<pk-content-group title="Education">
+				<pk-topic-education></pk-topic-education>
 			</pk-content-group>
 			<pk-content-group title="Coding Skills">
 				<pk-topic-skills-coding></pk-topic-skills-coding>

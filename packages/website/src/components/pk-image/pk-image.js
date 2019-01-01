@@ -13,12 +13,20 @@ class PKImage extends LitElement {
 		return html`
 			${sharedStyle}
 			<style>
-				img {
+				picture {
+					display: block;
+					max-width: 100%;
+				}
+				picture img {
 					display: block;
 					max-width: 100%;
 				}
 			</style>
-			<img src=${src} />
+			<picture>
+				<source srcset=${`${src}.webp`} type="image/webp" />
+				<source srcset=${`${src}.jpg`} type="image/jpeg" />
+				<img src=${`${src}.jpg`}>
+			</picture>
 		`;
 	}
 }

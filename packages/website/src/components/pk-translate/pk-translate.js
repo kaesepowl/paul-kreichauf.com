@@ -8,7 +8,8 @@ import template from "backtick-template";
 class PKTranslate extends PKConnectedElement {
 	static get properties() {
 		return {
-			key: { type: String }
+			key: { type: String },
+			failed: { type: Boolean, reflect: true }
 		};
 	}
 
@@ -16,13 +17,15 @@ class PKTranslate extends PKConnectedElement {
 		const newTranslation = this.getTranslation(this.key);
 		if (this.translation !== newTranslation) {
 			this.translation = newTranslation;
+			this.failed = this.translation === null;
+			//
 			this.requestUpdate();
 		}
 	}
 
 	getTranslation(key) {
 		const translation = i18nGetTranslation(this.getState());
-		return translation[key] || key;
+		return translation[key] || null;
 	}
 
 	/**
@@ -33,15 +36,18 @@ class PKTranslate extends PKConnectedElement {
 	}
 
 	render() {
-		const { translation } = this;
+		const { translation, key } = this;
 		return html`
 			<style>
+				pk-translate[failed] {
+					word-break: break-all;
+				}
 				b {
 					color: #0078d4;
 					font-weight: 700;
 				}
 			</style>
-			${template(html, translation)}
+			${template(html, translation || key)}
 		`;
 	}
 }
