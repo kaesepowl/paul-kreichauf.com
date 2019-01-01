@@ -1,9 +1,30 @@
 import { LitElement, html } from "@polymer/lit-element";
 //
+let initCalled = false;
+let simplebarLoadPromise;
+const loadSimplebar = () => {
+	if (initCalled === false) {
+		simplebarLoadPromise = new Promise((resolve, reject) => {
+			const script = document.createElement("script");
+			script.src = "/node_modules/simplebar/dist/simplebar.min.js";
+			document.head.appendChild(script);
+			script.addEventListener("load", resolve);
+			script.addEventListener("error", reject);
+		});
+		initCalled = true;
+	}
+	return simplebarLoadPromise;
+};
+//
 class PKScroller extends LitElement {
 	async firstUpdated() {
-		await this.updateComplete;
-		new SimpleBar(this.shadowRoot.getElementById("legacyWrapper"));
+		try {
+			await loadSimplebar();
+			await this.updateComplete;
+			new SimpleBar(this.shadowRoot.getElementById("legacyWrapper"));
+		} catch (e) {
+			throw new TypeError("Failied Load Simplebar Library.");
+		}
 	}
 
 	render() {
