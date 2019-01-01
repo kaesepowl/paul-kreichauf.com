@@ -2,39 +2,46 @@ import { LitElement, html } from "@polymer/lit-element";
 //
 import sharedStyle from "../../styles/shared";
 //
-import "../pk-card/pk-card";
+import "../pk-topic-experience-part/pk-topic-experience-part";
 //
 class PKTopicEducation extends LitElement {
 	render() {
 		return html`
 			${sharedStyle}
-			<pk-card>
-				<span slot="name">Programming Art University</span>
-				<span slot="sub">2006 - 2010 | New York</span>
-				<span slot="desc">
-					Diam diam amet vero tempor at amet justo, sit ipsum sed
-					consetetur et dolore dolore dolores diam nonumy. Et et erat
-					no sea.
-				</span>
-			</pk-card>
-			<pk-card>
-				<span slot="name">Programming Art University</span>
-				<span slot="sub">2006 - 2010 | New York</span>
-				<span slot="desc">
-					Diam diam amet vero tempor at amet justo, sit ipsum sed
-					consetetur et dolore dolore dolores diam nonumy. Et et erat
-					no sea.
-				</span>
-			</pk-card>
-			<pk-card>
-				<span slot="name">Programming Art University</span>
-				<span slot="sub">2006 - 2010 | New York</span>
-				<span slot="desc">
-					Diam diam amet vero tempor at amet justo, sit ipsum sed
-					consetetur et dolore dolore dolores diam nonumy. Et et erat
-					no sea.
-				</span>
-			</pk-card>
+			<style>
+				:host {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					grid-column-gap: 30px;
+					grid-row-gap: 0px;
+					justify-items: stretch;
+					align-items: stretch;
+				}
+				@media (max-width: 768px) {
+					:host {
+						grid-template-columns: 1fr 1fr;
+						grid-column-gap: 16px;
+					}
+				}
+			</style>
+			<pk-topic-experience-part
+				img="/src/assets/images/resume/siemens"
+				desc="topic_education_siemens_desc"
+				title="topic_education_siemens_title"
+				subtitle="topic_education_siemens_subtitle"
+			></pk-topic-experience-part>
+			<pk-topic-experience-part
+				img="/src/assets/images/resume/professional-school"
+				desc="topic_education_technical_high_school_desc"
+				title="topic_education_technical_high_school_title"
+				subtitle="topic_education_technical_high_school_subtitle"
+			></pk-topic-experience-part>
+			<pk-topic-experience-part
+				img="/src/assets/images/resume/professional-school"
+				desc="topic_education_professional_school_desc"
+				title="topic_education_professional_school_title"
+				subtitle="topic_education_professional_school_subtitle"
+			></pk-topic-experience-part>
 		`;
 	}
 }

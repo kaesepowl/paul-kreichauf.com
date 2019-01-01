@@ -13,7 +13,6 @@ class PKTopicExperiencePart extends LitElement {
 	static get properties() {
 		return {
 			img: { type: String },
-			desc: { type: String },
 			title: { type: String },
 			subtitle: { type: String }
 		};
@@ -34,9 +33,6 @@ class PKTopicExperiencePart extends LitElement {
 						key=${subtitle}
 					></pk-translate>
 				</pk-card-footer>
-				<pk-card-body>
-					<pk-translate key=${desc}></pk-translate>
-				</pk-card-body>
 			</pk-card-new>
 		`;
 	}

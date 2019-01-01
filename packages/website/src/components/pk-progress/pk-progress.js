@@ -2,6 +2,8 @@ import { LitElement, html } from "@polymer/lit-element";
 //
 import sharedStyle from "../../styles/shared";
 //
+import "../pk-translate/pk-translate";
+//
 class PKProgress extends LitElement {
 	static get properties() {
 		return {
@@ -18,11 +20,11 @@ class PKProgress extends LitElement {
 		}
 	}
 	render() {
-		const { label, value } = this;
+		const { label } = this;
 		return html`
 			${sharedStyle}
 			<style>
-				label {
+				pk-translate {
 					font-size: 14px;
 					font-weight: 600;
 					/* THEME LIGHT */
@@ -51,7 +53,7 @@ class PKProgress extends LitElement {
 					background-color: #0078d4;
 				}
 			</style>
-			<label>${label}</label>
+			<pk-translate key=${label}></pk-translate>
 			<div><div></div></div>
 		`;
 	}

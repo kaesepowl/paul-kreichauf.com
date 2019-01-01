@@ -12,7 +12,7 @@ class PKTopicExperience extends LitElement {
 				:host {
 					display: grid;
 					grid-template-columns: 1fr 1fr 1fr;
-					grid-column-gap: 30px;
+					grid-column-gap: 10px;
 					grid-row-gap: 0px;
 					justify-items: stretch;
 					align-items: stretch;
