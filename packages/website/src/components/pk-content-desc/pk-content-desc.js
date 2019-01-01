@@ -16,11 +16,10 @@ class PkContentDesc extends LitElement {
 					/* THEME LIGHT */
 					color: #666;
 				}
-				::slotted(b) {
+				b {
 					color: #0078d4;
 					font-weight: 700;
 				}
-
 				@media (max-width: 480px) {
 					:host {
 						margin-top: -28px;

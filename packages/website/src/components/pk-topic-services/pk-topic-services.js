@@ -2,6 +2,7 @@ import { LitElement, html } from "@polymer/lit-element";
 //
 import "../pk-card/pk-card";
 import "../pk-icon/pk-icon";
+import "../pk-translate/pk-translate";
 //
 class PKTopicServices extends LitElement {
 	render() {
@@ -28,48 +29,58 @@ class PKTopicServices extends LitElement {
 			</style>
 			<pk-card>
 				<pk-icon type="code" slot="icons"></pk-icon>
-				<span slot="name">Web Development</span>
-				<span slot="desc">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.
-				</span>
+				<pk-translate
+					slot="name"
+					key="topic_services_web_development_title"
+				></pk-translate>
+				<pk-translate
+					slot="desc"
+					key="topic_services_web_development_desc"
+				></pk-translate>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="rotate-right" slot="icons"></pk-icon>
-				<span slot="name">Agile Methods</span>
-				<span slot="desc">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.
-				</span>
+				<pk-translate
+					slot="name"
+					key="topic_services_agile_methods_title"
+				></pk-translate>
+				<pk-translate
+					slot="desc"
+					key="topic_services_agile_methods_desc"
+				></pk-translate>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="cloud" slot="icons"></pk-icon>
-				<span slot="name">Cloud Architecture</span>
-				<span slot="desc">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.
-				</span>
+				<pk-translate
+					slot="name"
+					key="topic_services_cloud_architecture_title"
+				></pk-translate>
+				<pk-translate
+					slot="desc"
+					key="topic_services_cloud_architecture_desc"
+				></pk-translate>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="futbol-o" slot="icons"></pk-icon>
-				<span slot="name">Foosball&reg; Training</span>
-				<span slot="desc">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.
-				</span>
+				<pk-translate
+					slot="name"
+					key="topic_services_kicker_title"
+				></pk-translate>
+				<pk-translate
+					slot="desc"
+					key="topic_services_kicker_desc"
+				></pk-translate>
 			</pk-card>
 			<pk-card>
 				<pk-icon type="music" slot="icons"></pk-icon>
-				<span slot="name">Mxing Music</span>
-				<span slot="desc">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-					do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua.
-				</span>
+				<pk-translate
+					slot="name"
+					key="topic_services_dj_title"
+				></pk-translate>
+				<pk-translate
+					slot="desc"
+					key="topic_services_dj_desc"
+				></pk-translate>
 			</pk-card>
 		`;
 	}

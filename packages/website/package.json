@@ -21,6 +21,7 @@
 		"@polymer/lit-element": "^0.6.5",
 		"@webcomponents/webcomponentsjs": "^2.2.1",
 		"animate.css": "^3.7.0",
+		"backtick-template": "^0.2.0",
 		"pwa-helpers": "^0.9.0",
 		"redux": "^4.0.1",
 		"redux-thunk": "^2.3.0",

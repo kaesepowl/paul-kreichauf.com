@@ -1497,6 +1497,10 @@ backo2@1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/backo2/-/backo2-1.0.2.tgz#31ab1ac8b129363463e35b3ebb69f4dfcfba7947"
 
+backtick-template@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/backtick-template/-/backtick-template-0.2.0.tgz#de33168260e70eff6435f565ad7aa8699d0b7fe9"
+
 balanced-match@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/balanced-match/-/balanced-match-1.0.0.tgz#89b4d199ab2bee49de164ea02b89ce462d71b767"

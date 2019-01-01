@@ -20,7 +20,8 @@ class PkContentGroup extends LitElement {
 					margin-top: 50px;
 					line-height: 1.5em;
 				}
-				.title {
+				pk-translate {
+					display: block;
 					font-size: 16px;
 					padding: 12px 15px 10px 15px;
 					/* THEME LIGHT */
@@ -34,7 +35,7 @@ class PkContentGroup extends LitElement {
 					}
 				}
 			</style>
-			<div class="title">${title}</div>
+			<pk-translate key=${title}></pk-translate>
 			<slot></slot>
 		`;
 	}

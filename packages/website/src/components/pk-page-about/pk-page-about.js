@@ -10,21 +10,20 @@ import "../pk-content-desc/pk-content-desc";
 import "../pk-content-title/pk-content-title";
 import "../pk-animate/pk-animate";
 import "../pk-topic-services/pk-topic-services";
+import "../pk-translate/pk-translate";
 //
 class PKPageAbout extends PKPage {
-
 	render() {
 		const content = html`
-			<pk-content-title>ABOUT ME</pk-content-title>
+			<pk-content-title>
+				<pk-translate key="page_about_title"></pk-translate>
+			</pk-content-title>
 			<pk-content-desc>
-				<b>Hi, I'm Paul Kreichauf</b>, invidunt sed labore eirmod ea et,
-				dolor sit sea et est diam lorem sed. Est rebum lorem sed at
-				consetetur et eirmod. I'm good at html, css, wordpress, .net
-				core, jquery, bootstrap, angularjs.
+				<pk-translate key="page_about_desc"></pk-translate>
 			</pk-content-desc>
 			<pk-content-button-group>
 				<pk-content-button icon="download">
-					Download CV
+					<pk-translate key="page_about_download_cv"></pk-translate>
 				</pk-content-button>
 				<pk-content-button
 					link="https://facebook.com/kaesepowl"
@@ -47,7 +46,7 @@ class PKPageAbout extends PKPage {
 					hideCaption
 				></pk-content-button>
 			</pk-content-button-group>
-			<pk-content-group title="Services">
+			<pk-content-group title="page_about_services">
 				<pk-topic-services></pk-topic-services>
 			</pk-content-group>
 		`;
