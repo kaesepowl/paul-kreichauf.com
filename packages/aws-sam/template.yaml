@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+    cloud functions for paul-kreichauf.com
+Globals:
+    Function:
+        Timeout: 3
+Resources:
+    CloudFrontRewriteFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: cloudfront/
+            Handler: rewrite.handler
+            Runtime: nodejs8.10
+            AutoPublishAlias: live

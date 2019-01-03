@@ -1,0 +1,30 @@
+{
+	"name": "cloudfront",
+	"version": "1.0.0",
+	"description": "AWS Lambda Edge CloudFront functions",
+	"main": "rewrite.js",
+	"scripts": {
+		"test": "jest",
+		"test:watch": "jest --watch"
+	},
+	"keywords": [
+		"aws",
+		"cloudfront",
+		"lambda"
+	],
+	"prettier": {
+		"useTabs": true,
+		"jsxBracketSameLine": true,
+		"tabWidth": 4,
+		"bracketSpacing": true
+	},
+	"jest": {
+		"verbose": true
+	},
+	"private": true,
+	"author": "Paul Kreichauf",
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"jest": "^23.6.0"
+	}
+}
