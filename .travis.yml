@@ -18,7 +18,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
     bucket: edge.paul-kreichauf.com
     local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
-    region: eu-central-1
+    region: us-east-1
     skip_cleanup: true
     default_text_charset: utf-8
     on:
