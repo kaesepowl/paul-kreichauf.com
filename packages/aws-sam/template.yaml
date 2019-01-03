@@ -13,6 +13,13 @@ Resources:
         Type: AWS::S3::Bucket
         Properties:
             BucketName: edge.paul-kreichauf.com
+            CorsConfiguration:
+                CorsRules:
+                    - AllowedHeaders: ["Authorization", "Content-Length"]
+                      AllowedMethods: [GET]
+                      AllowedOrigins: ["*"]
+                      Id: myCORSRuleId1
+                      MaxAge: "3600"
     StorageBucketPolicy:
         Type: AWS::S3::BucketPolicy
         Properties:
@@ -42,7 +49,7 @@ Resources:
                     SslSupportMethod: sni-only
                 Origins:
                     - Id: PaulKreichaufComOrigin
-                      DomainName: !Sub '${S3Bucket}.s3-${AWS::Region}.amazonaws.com'
+                      DomainName: !Sub "${S3Bucket}.s3.amazonaws.com"
                       S3OriginConfig:
                           OriginAccessIdentity: !Sub
                               - origin-access-identity/cloudfront/${OriginAccessId}
@@ -51,6 +58,7 @@ Resources:
                                 }
                 DefaultCacheBehavior:
                     TargetOriginId: PaulKreichaufComOrigin
+                    Compress: "true"
                     LambdaFunctionAssociations:
                         - EventType: origin-request
                           LambdaFunctionARN: !Ref CloudFrontRewriteLambda.Version
