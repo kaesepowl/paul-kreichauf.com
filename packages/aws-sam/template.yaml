@@ -5,11 +5,102 @@ Description: >
 Globals:
     Function:
         Timeout: 3
+Parameters:
+    CDNCertArn:
+        Type: String
 Resources:
-    CloudFrontRewriteFunction:
+    S3Bucket:
+        Type: AWS::S3::Bucket
+        Properties:
+            BucketName: edge.paul-kreichauf.com
+    StorageBucketPolicy:
+        Type: AWS::S3::BucketPolicy
+        Properties:
+            Bucket: !Ref "S3Bucket"
+            PolicyDocument:
+                Statement:
+                    - Action: s3:GetObject
+                      Effect: Allow
+                      Resource: !Sub "arn:aws:s3:::${S3Bucket}/*"
+                      Principal:
+                          AWS: !Sub "arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CFDistributionOriginAccessIdentity}"
+    CFDistribution:
+        Type: AWS::CloudFront::Distribution
+        Properties:
+            DistributionConfig:
+                Enabled: "true"
+                Comment: CDN for paul-kreichauf.com
+                DefaultRootObject: index.html
+                HttpVersion: http2
+                PriceClass: PriceClass_100
+                Aliases:
+                    - www.paul-kreichauf.com
+                    - paul-kreichauf.com
+                ViewerCertificate:
+                    AcmCertificateArn: !Ref CDNCertArn
+                    MinimumProtocolVersion: TLSv1.1_2016
+                    SslSupportMethod: sni-only
+                Origins:
+                    - Id: PaulKreichaufComOrigin
+                      DomainName: !Sub '${S3Bucket}.s3-${AWS::Region}.amazonaws.com'
+                      S3OriginConfig:
+                          OriginAccessIdentity: !Sub
+                              - origin-access-identity/cloudfront/${OriginAccessId}
+                              - {
+                                    OriginAccessId: !Ref CFDistributionOriginAccessIdentity,
+                                }
+                DefaultCacheBehavior:
+                    TargetOriginId: PaulKreichaufComOrigin
+                    LambdaFunctionAssociations:
+                        - EventType: origin-request
+                          LambdaFunctionARN: !Ref CloudFrontRewriteLambda.Version
+                    ForwardedValues:
+                        QueryString: "false"
+                        Headers:
+                            - Origin
+                        Cookies:
+                            Forward: none
+                    ViewerProtocolPolicy: redirect-to-https
+    CFDistributionOriginAccessIdentity:
+        Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+        Properties:
+            CloudFrontOriginAccessIdentityConfig:
+                Comment: identity to connect cloud front with s3
+    CloudFrontRewriteLambda:
         Type: AWS::Serverless::Function
         Properties:
             CodeUri: cloudfront/
             Handler: rewrite.handler
             Runtime: nodejs8.10
+            Role: !GetAtt CloudFrontRewriteLambdaRole.Arn
             AutoPublishAlias: live
+    CloudFrontRewriteLambdaRole:
+        Type: "AWS::IAM::Role"
+        Properties:
+            Path: "/"
+            ManagedPolicyArns:
+                - "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+            AssumeRolePolicyDocument:
+                Version: "2012-10-17"
+                Statement:
+                    - Sid: "AllowLambdaServiceToAssumeRole"
+                      Effect: "Allow"
+                      Action:
+                          - "sts:AssumeRole"
+                      Principal:
+                          Service:
+                              - "lambda.amazonaws.com"
+                              - "edgelambda.amazonaws.com"
+
+Outputs:
+    CloudFrontRewriteLambda:
+        Description: Lambda@Edge function for cloudfrount which rewrites the uri
+        Value: !GetAtt CloudFrontRewriteLambda.Arn
+
+    CloudFrontRewriteLambdaVersion:
+        Description: Lambda@Edge Sample Function ARN with Version
+        Value: !Ref CloudFrontRewriteLambda.Version
+
+    CFDistribution:
+        Description: paul-kreichauf.com CDN
+        Value: !GetAtt CFDistribution.DomainName

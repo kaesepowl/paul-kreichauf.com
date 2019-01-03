@@ -16,7 +16,7 @@ deploy:
     provider: s3
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
-    bucket: paul-kreichauf.com
+    bucket: edge.paul-kreichauf.com
     local_dir: "${TRAVIS_BUILD_DIR}/${BUILD_DIR}/build/es6-bundled"
     region: eu-central-1
     skip_cleanup: true

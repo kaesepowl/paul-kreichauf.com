@@ -1,0 +1,20 @@
+{
+	"name": "aws-sam",
+	"version": "1.0.0",
+	"description": "package for lambdas for my personal website with aws-sam",
+	"scripts": {
+		"build": "sam build",
+		"package": "sam package --output-template-file packaged.yaml --s3-bucket lambdas.paul-kreichauf.com",
+		"validate": "sam validate",
+		"deploy": "sam deploy --template-file packaged.yaml --stack-name lambdas-paul-kreichauf-com --capabilities CAPABILITY_IAM"
+	},
+	"prettier": {
+		"useTabs": true,
+		"jsxBracketSameLine": true,
+		"tabWidth": 4,
+		"bracketSpacing": true
+	},
+	"keywords": [],
+	"author": "Paul Kreichauf",
+	"license": "UNLICENSED"
+}

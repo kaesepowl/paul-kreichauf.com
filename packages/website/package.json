@@ -3,6 +3,7 @@
 	"version": "1.0.0",
 	"description": "the frontend for paul-kreichauf.com website",
 	"main": "index.js",
+	"license": "UNLICENSED",
 	"scripts": {
 		"start": "polymer serve",
 		"lint": "polymer lint",
