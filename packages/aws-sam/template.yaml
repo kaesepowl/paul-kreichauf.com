@@ -99,6 +99,23 @@ Resources:
                           Service:
                               - "lambda.amazonaws.com"
                               - "edgelambda.amazonaws.com"
+    ContactLambda:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: api/
+            Handler: contact.handler
+            Runtime: nodejs8.10
+            Description: >-
+                contact endpoint to send a mail at info@paul-kreichauf.com
+            Policies:
+                - SESCrudPolicy:
+                      IdentityName: paul-kreichauf.com
+            Events:
+                Contact:
+                    Type: Api
+                    Properties:
+                        Path: "/v1/contact"
+                        Method: post
 
 Outputs:
     CloudFrontRewriteLambda:

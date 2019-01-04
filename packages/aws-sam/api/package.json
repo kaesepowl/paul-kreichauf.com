@@ -1,0 +1,34 @@
+{
+	"name": "api",
+	"version": "1.0.0",
+	"description": "AWS Lambda api functions",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"test:watch": "jest --watch"
+	},
+	"keywords": [
+		"aws",
+		"api",
+		"lambda"
+	],
+	"prettier": {
+		"useTabs": true,
+		"jsxBracketSameLine": true,
+		"tabWidth": 4,
+		"bracketSpacing": true
+	},
+	"jest": {
+		"verbose": false
+	},
+	"private": true,
+	"author": "Paul Kreichauf",
+	"license": "UNLICENSED",
+	"devDependencies": {
+		"aws-sdk-mock": "^4.3.0",
+		"jest": "^23.6.0"
+	},
+	"dependencies": {
+		"aws-sdk": "^2.383.0"
+	}
+}
