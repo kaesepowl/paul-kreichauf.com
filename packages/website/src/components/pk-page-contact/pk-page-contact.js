@@ -4,12 +4,11 @@ import { PKPage } from "../pk-page/pk-page";
 import "../pk-content-title/pk-content-title";
 import "../pk-google-maps/pk-google-maps";
 import "../pk-content-group/pk-content-group";
-import "../pk-form/pk-form";
-import "../pk-form-input-text/pk-form-input-text";
-import "../pk-form-textarea/pk-form-textarea";
-import "../pk-form-button/pk-form-button";
 import "../pk-topic-imprint/pk-topic-imprint";
 import "../pk-topic-privacy/pk-topic-privacy";
+import "../pk-topic-contact-info/pk-topic-contact-info";
+import "../pk-topic-form-contact/pk-topic-form-contact";
+import "../pk-translate/pk-translate";
 //
 class PKPageContact extends PKPage {
 	render() {
@@ -31,40 +30,17 @@ class PKPageContact extends PKPage {
 				#privacy {
 					grid-area: Privacy;
 				}
+				#contact {
+					grid-area: Contact;
+				}
 				pk-topic-imprint,
 				pk-topic-privacy {
 					margin: 15px;
-				}
-				#contact {
-					grid-area: Contact;
-					font-size: 15px;
-					color: #444;
-					line-height: 36px;
-				}
-				#contact div {
-					margin-top: 10px;
-				}
-				#contact div a {
-					color: #444;
-					text-decoration: none;
-				}
-				#contact div a:hover {
-					text-decoration: underline;
 				}
 				pk-google-maps {
 					grid-area: Map;
 					margin-top: 50px;
 					height: 580px;
-				}
-				pk-icon {
-					color: #0078d4;
-					font-size: 28px;
-					position: relative;
-					top: 5px;
-					margin-right: 6px;
-				}
-				.button-area {
-					text-align: right;
 				}
 				@media (max-width: 1023px) {
 					pk-google-maps {
@@ -78,49 +54,15 @@ class PKPageContact extends PKPage {
 					}
 				}
 			</style>
-			<pk-content-title>CONTACT</pk-content-title>
+			<pk-content-title>
+				<pk-translate key="page_contact_title"> </pk-translate>
+			</pk-content-title>
 			<div id="contact">
-				<pk-content-group title="Get in Touch">
-					<div>
-						<pk-icon type="map-marker"></pk-icon>
-						<span>Munich, Germany</span>
-					</div>
-					<div>
-						<pk-icon type="envelope"></pk-icon>
-						<a href="mailto:info@paul-kreichauf.com">
-							info@paul-kreichauf.com
-						</a>
-					</div>
-					<div>
-						<pk-icon type="phone"></pk-icon>
-						<a href="tel:+491734302543"> +49 173 4302542 </a>
-					</div>
-					<div>
-						<pk-icon type="fax"></pk-icon>
-						<span>+49 32 221937798 </span>
-					</div>
+				<pk-content-group title="page_contact_info">
+					<pk-topic-contact-info></pk-topic-contact-info>
 				</pk-content-group>
-				<pk-content-group title="Contact Form">
-					<pk-form>
-						<pk-form-input-text
-							icon="user"
-							placeholder="Name Surname"
-						></pk-form-input-text>
-						<pk-form-input-text
-							icon="envelope"
-							placeholder="Email Address"
-						></pk-form-input-text>
-						<pk-form-textarea
-							icon="comment"
-							placeholder="Email Address"
-						></pk-form-textarea>
-						<div class="button-area">
-							<pk-form-button
-								caption="Send Message"
-								icon="long-arrow-right"
-							></pk-form-button>
-						</div>
-					</pk-form>
+				<pk-content-group title="page_contact_form">
+					<pk-topic-form-contact></pk-topic-form-contact>
 				</pk-content-group>
 			</div>
 			<pk-content-group id="imprint" title="Imprint">

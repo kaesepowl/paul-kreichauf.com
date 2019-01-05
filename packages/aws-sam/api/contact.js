@@ -7,11 +7,11 @@ const createEmailTemplate = ({ message, subject, email }) => ({
 	Message: {
 		Body: {
 			Text: {
-				Data: message
+				Data: escape(message)
 			}
 		},
 		Subject: {
-			Data: subject
+			Data: escape(subject)
 		}
 	},
 	Source: "info@paul-kreichauf.com",
@@ -31,7 +31,7 @@ exports.handler = async event => {
 		const template = createEmailTemplate({
 			email,
 			message,
-			subject: `Message from ${name}`
+			subject: `Message from ${name} [${email}]`
 		});
 		// send mail
 		const res = await sesClient.sendEmail(template).promise();
