@@ -1,6 +1,7 @@
 const { handler } = require("./contact");
-const { mock } = require("aws-sdk-mock");
-mock("SES", "sendEmail", "test-message");
+const AWS = require("aws-sdk-mock");
+const Joi = require("joi");
+AWS.mock("SES", "sendEmail", "test-message");
 
 const event = {
 	body: JSON.stringify({
@@ -12,6 +13,15 @@ const event = {
 
 test("execute", async () => {
 	const res = await handler(event);
-
 	expect(res).toEqual({ statusCode: 200 });
+});
+
+test("execute - parameter missing", async () => {
+	const res = await handler({
+		body: JSON.stringify({
+			name: "TEST",
+			message: "Hi"
+		})
+	});
+	expect(res).toEqual({ statusCode: 500 });
 });

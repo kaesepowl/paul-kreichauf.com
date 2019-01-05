@@ -1,4 +1,18 @@
 const AWS = require("aws-sdk");
+const Joi = require("joi");
+
+const schema = Joi.object().keys({
+	name: Joi.string()
+		.min(3)
+		.max(100)
+		.required(),
+	email: Joi.string()
+		.email({ minDomainAtoms: 2 })
+		.required(),
+	message: Joi.string()
+		.max(5000)
+		.required()
+});
 
 const createEmailTemplate = ({ message, subject, email }) => ({
 	Destination: {
@@ -7,11 +21,11 @@ const createEmailTemplate = ({ message, subject, email }) => ({
 	Message: {
 		Body: {
 			Text: {
-				Data: escape(message)
+				Data: message
 			}
 		},
 		Subject: {
-			Data: escape(subject)
+			Data: subject
 		}
 	},
 	Source: "info@paul-kreichauf.com",
@@ -24,8 +38,9 @@ exports.handler = async event => {
 		// get parameter from event
 		const { name, email, message } = JSON.parse(event.body);
 		// check if all needed parameters are set
-		if (!name || !email || !message) {
-			throw new Error("Invalid or missing Parameter.");
+		const validationResult = Joi.validate({ name, email, message }, schema);
+		if (validationResult.error !== null) {
+			throw validationResult.error;
 		}
 		// get template
 		const template = createEmailTemplate({
@@ -41,7 +56,7 @@ exports.handler = async event => {
 		};
 	} catch (e) {
 		console.error(e);
-		return { statusCode: 500 };
+		return { statusCode: 400 };
 	}
 };
 exports.createEmailTemplate = createEmailTemplate;

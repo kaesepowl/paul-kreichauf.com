@@ -18,17 +18,15 @@
 		"tabWidth": 4,
 		"bracketSpacing": true
 	},
-	"jest": {
-		"verbose": false
-	},
 	"private": true,
 	"author": "Paul Kreichauf",
 	"license": "UNLICENSED",
 	"devDependencies": {
 		"aws-sdk-mock": "^4.3.0",
-		"jest": "^23.6.0"
+		"jest": "24.0.0-alpha.9"
 	},
 	"dependencies": {
-		"aws-sdk": "^2.383.0"
+		"aws-sdk": "^2.383.0",
+		"joi": "^14.3.1"
 	}
 }
