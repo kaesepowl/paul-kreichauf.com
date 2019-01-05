@@ -3,8 +3,23 @@ import { LitElement, html } from "@polymer/lit-element";
 import sharedStyle from "../../styles/shared";
 //
 class PKForm extends LitElement {
-	static get properties() {
-		return {};
+	firstUpdated() {
+		this.getFormElement().addEventListener("submit", e => this.submit(e));
+	}
+
+	getFormElement() {
+		return this.shadowRoot
+			.getElementById("form")
+			.assignedElements()
+			.pop();
+	}
+
+	reset() {
+		this.getFormElement().reset();
+	}
+
+	submit(e) {
+		e.preventDefault();
 	}
 
 	render() {
@@ -15,7 +30,7 @@ class PKForm extends LitElement {
 					margin-top: 20px;
 				}
 			</style>
-			<slot></slot>
+			<slot id="form" name="form"></slot> <slot></slot>
 		`;
 	}
 }

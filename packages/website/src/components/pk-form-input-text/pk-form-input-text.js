@@ -10,6 +10,10 @@ class PKFormInputText extends LitElement {
 		};
 	}
 
+	validate() {
+		console.log("validate");
+	}
+
 	render() {
 		const { icon, placeholder } = this;
 		return html`
@@ -19,7 +23,7 @@ class PKFormInputText extends LitElement {
 					position: relative;
 					margin-bottom: 1rem;
 				}
-				input {
+				::slotted(input) {
 					box-sizing: border-box;
 					border-color: #ddd;
 					font-size: 14px;
@@ -37,11 +41,11 @@ class PKFormInputText extends LitElement {
 					transition: border-color 0.15s;
 					outline: none;
 				}
-				input:focus {
+				::slotted(input:focus) {
 					border-color: #0078d4;
 					box-shadow: none;
 				}
-				input:focus + pk-icon {
+				::slotted(input:focus) + pk-icon {
 					color: #0078d4;
 				}
 				pk-icon {
@@ -52,14 +56,7 @@ class PKFormInputText extends LitElement {
 					color: #aaa;
 				}
 			</style>
-			<input
-				type="text"
-				name="NameSurname"
-				class="form-control"
-				placeholder=${placeholder}
-				required=""
-			/>
-			${
+			<slot></slot> ${
 				icon
 					? html`
 							<pk-icon type=${icon}></pk-icon>

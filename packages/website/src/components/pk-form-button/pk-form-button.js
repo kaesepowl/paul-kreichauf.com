@@ -17,7 +17,7 @@ class PKFormButton extends LitElement {
 				:host {
 					display: block;
 				}
-				button {
+				::slotted(button) {
 					box-sizing: border-box;
 					outline: none;
 
@@ -38,30 +38,16 @@ class PKFormButton extends LitElement {
 					color: #444;
 					background-color: transparent;
 				}
-				button:hover {
+				::slotted(button:hover) {
 					background-color: #0078d4;
 					border-color: #0078d4;
 					color: #fff;
 				}
-				button:focus {
+				::slotted(button:focus) {
 					border-color: #0078d4;
 				}
-
-				button:hover pk-icon {
-					color: #fff;
-				}
-				pk-icon {
-					transition: 0.5s;
-					font-size: 24px;
-					line-height: 24px;
-					margin-left: 6px;
-					position: relative;
-					top: 4px;
-				}
 			</style>
-			<button type="submit">
-				${caption} <pk-icon type=${icon}></pk-icon>
-			</button>
+			<slot></slot>
 		`;
 	}
 }

@@ -19,7 +19,7 @@ class PKFormTextarea extends LitElement {
 					margin-bottom: 1rem;
 					width: 100%;
 				}
-				textarea {
+				::slotted(textarea) {
 					box-sizing: border-box;
 					background-color: #fff;
 					border-color: #ddd;
@@ -46,11 +46,11 @@ class PKFormTextarea extends LitElement {
 					padding-right: 35px;
 					border-radius: 0;
 				}
-				textarea:focus {
+				::slotted(textarea:focus) {
 					border-color: #0078d4;
 					box-shadow: none;
 				}
-				textarea:focus + pk-icon {
+				::slotted(textarea:focus) + pk-icon {
 					color: #0078d4;
 				}
 				pk-icon {
@@ -61,17 +61,7 @@ class PKFormTextarea extends LitElement {
 					color: #aaa;
 				}
 			</style>
-			<textarea
-				type="text"
-				cols="30"
-				,
-				rows="5"
-				name="NameSurname"
-				class="form-control"
-				placeholder=${placeholder}
-				required=""
-			></textarea>
-			${
+			<slot></slot> ${
 				icon
 					? html`
 							<pk-icon type=${icon}></pk-icon>
