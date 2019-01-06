@@ -18,6 +18,11 @@ import "../pk-translate/pk-translate";
 import { getAppPage, getAppSubPages } from "../../selectors/app";
 import { getPortfolioItems } from "../../selectors/portfolio";
 import { updateItems } from "../../actions/portfolio";
+import {
+	PORTFOLIO_TAG_CODING,
+	PORTFOLIO_TAG_MIXES_AUDIO,
+	PORTFOLIO_TAG_MIXES_VIDEO
+} from "../../data/modal-items";
 //
 class PKPagePortfolio extends PKPage {
 	static get properties() {
@@ -43,14 +48,25 @@ class PKPagePortfolio extends PKPage {
 		this.items = getPortfolioItems(state);
 	}
 
+	getIconTypeByTag(tag) {
+		switch (tag) {
+			case PORTFOLIO_TAG_CODING:
+				return "briefcase";
+			case PORTFOLIO_TAG_MIXES_AUDIO:
+				return "soundcloud";
+			case PORTFOLIO_TAG_MIXES_VIDEO:
+				return "youtube";
+		}
+	}
+
 	renderItem(item, filter) {
-		const { id, title, subTitle, img } = item;
+		const { id, title, subTitle, img, tag } = item;
 		const filterPath = filter ? `/${filter}` : "";
 		return html`
 			<pk-card-new>
 				<pk-hover-zoom-in>
 					<pk-link-icon
-						type="music"
+						type=${this.getIconTypeByTag(tag)}
 						path=${`/portfolio${filterPath}/modal-${id}`}
 					>
 						<pk-card-image>

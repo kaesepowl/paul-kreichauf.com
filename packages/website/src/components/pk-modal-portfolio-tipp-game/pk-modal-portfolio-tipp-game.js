@@ -17,7 +17,6 @@ class PKModalPortfolioTippGame extends LitElement {
 		return html`
 			${sharedStyle}
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				tipp game
 			</pk-modal-portfolio>
 		`;
 	}
