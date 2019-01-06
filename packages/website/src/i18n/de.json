@@ -56,11 +56,15 @@
 	"topic_education_siemens_title": "Industrietechnologe",
 	"topic_education_siemens_subtitle": "2005 - 2007 | Siemens München",
 	"topic_skills_paradigm_oop": "Objektorientiert",
-	"topic_skills_paradigm_functional": "DevOps",
+	"topic_skills_paradigm_functional": "Funktional",
 	"topic_skills_paradigm_declarative": "Deklarativ",
 	"topic_skills_paradigm_imperative": "Imperativ",
 	"topic_skills_languages_js": "JavaScript",
 	"topic_skills_languages_sql": "SQL",
 	"topic_skills_languages_php": "PHP",
-	"topic_skills_languages_java": "Java"
+	"topic_skills_languages_java": "Java",
+	"topic_skills_infrastructure_hosted": "Eigene Serve",
+	"topic_skills_infrastructure_devops": "DevOps",
+	"topic_skills_infrastructure_aws": "Amazon Web Services",
+	"topic_skills_infrastructure_google": "Google Cloud"
 }
