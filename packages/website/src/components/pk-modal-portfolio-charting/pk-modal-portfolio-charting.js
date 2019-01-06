@@ -7,7 +7,6 @@ import "../pk-modal-portfolio/pk-modal-portfolio";
 import { getModalItemById } from "../../data/modal-items";
 //
 class PKModalPortfolioCharting extends LitElement {
-
 	constructor() {
 		super();
 		this.data = getModalItemById("portfolio-charting");
@@ -18,7 +17,6 @@ class PKModalPortfolioCharting extends LitElement {
 		return html`
 			${sharedStyle}
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				charting
 			</pk-modal-portfolio>
 		`;
 	}

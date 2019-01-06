@@ -22,7 +22,7 @@ class PKPageAbout extends PKPage {
 				<pk-translate key="page_about_desc"></pk-translate>
 			</pk-content-desc>
 			<pk-content-button-group>
-				<pk-content-button icon="download">
+				<pk-content-button icon="download" style="display:none;">
 					<pk-translate key="page_about_download_cv"></pk-translate>
 				</pk-content-button>
 				<pk-content-button

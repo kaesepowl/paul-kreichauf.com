@@ -26,7 +26,7 @@ class PKModalPortfolioImperion extends LitElement {
 				}
 			</style>
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				<pk-element-paragraph>asdf</pk-element-paragraph>
+				<!-- <pk-element-paragraph>asdf</pk-element-paragraph>
 				<pk-element-paragraph>asdf</pk-element-paragraph>
 				<pk-element-quote
 					>Nimmt Opi Opium, bringt Opium den Opi um</pk-element-quote
@@ -37,7 +37,7 @@ class PKModalPortfolioImperion extends LitElement {
 					<pk-element-list-item>item 1</pk-element-list-item>
 					<pk-element-list-item>item 1</pk-element-list-item>
 					<pk-element-list-item>item 1</pk-element-list-item>
-				</pk-element-list>
+				</pk-element-list> -->
 				<pk-youtube youtubeid="2mdnALs-tKs"></pk-youtube>
 			</pk-modal-portfolio>
 		`;

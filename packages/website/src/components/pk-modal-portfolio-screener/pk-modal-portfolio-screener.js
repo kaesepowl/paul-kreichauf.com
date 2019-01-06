@@ -17,7 +17,6 @@ class PKModalPortfolioScreener extends LitElement {
 		return html`
 			${sharedStyle}
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				screener
 			</pk-modal-portfolio>
 		`;
 	}

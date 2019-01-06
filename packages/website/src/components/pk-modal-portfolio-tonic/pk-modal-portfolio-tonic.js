@@ -17,7 +17,6 @@ class PKModalPortfolioTonic extends LitElement {
 		return html`
 			${sharedStyle}
 			<pk-modal-portfolio img=${img} title=${title} img=${subTitle}>
-				tonic
 			</pk-modal-portfolio>
 		`;
 	}
