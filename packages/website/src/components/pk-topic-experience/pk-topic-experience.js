@@ -29,36 +29,42 @@ class PKTopicExperience extends LitElement {
 				desc="topic_experience_interhyp_desc"
 				title="topic_experience_interhyp_title"
 				subtitle="topic_experience_interhyp_subtitle"
+				link="https://www.interhyp.de"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/team-internet"
 				desc="topic_experience_team_internet_desc"
 				title="topic_experience_team_internet_title"
 				subtitle="topic_experience_team_internet_subtitle"
+				link="https://www.teaminternet.com/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/financial-com"
 				desc="topic_experience_financial_com_desc"
 				title="topic_experience_financial_com_title"
 				subtitle="topic_experience_financial_com_subtitle"
+				link="https://www.financial.com/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/wailua"
 				desc="topic_experience_wailua_desc"
 				title="topic_experience_wailua_title"
 				subtitle="topic_experience_wailua_subtitle"
+				link="http://www.wailua.de/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/travian-games"
 				desc="topic_experience_travian_games_desc"
 				title="topic_experience_travian_games_title"
 				subtitle="topic_experience_travian_games_subtitle"
+				link="https://www.traviangames.de/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/efficient-it"
 				desc="topic_experience_efficient_it_desc"
 				title="topic_experience_efficient_it_title"
 				subtitle="topic_experience_efficient_it_subtitle"
+				link="http://www.efficient.it/"
 			></pk-topic-experience-part>
 		`;
 	}

@@ -29,18 +29,21 @@ class PKTopicEducation extends LitElement {
 				desc="topic_education_siemens_desc"
 				title="topic_education_siemens_title"
 				subtitle="topic_education_siemens_subtitle"
+				link="http://sta-web.de/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/professional-school"
 				desc="topic_education_technical_high_school_desc"
 				title="topic_education_technical_high_school_title"
 				subtitle="topic_education_technical_high_school_subtitle"
+				link="https://bsz-dessau-rosslau.de/"
 			></pk-topic-experience-part>
 			<pk-topic-experience-part
 				img="/src/assets/images/resume/professional-school"
 				desc="topic_education_professional_school_desc"
 				title="topic_education_professional_school_title"
 				subtitle="topic_education_professional_school_subtitle"
+				link="https://bsz-dessau-rosslau.de/"
 			></pk-topic-experience-part>
 		`;
 	}

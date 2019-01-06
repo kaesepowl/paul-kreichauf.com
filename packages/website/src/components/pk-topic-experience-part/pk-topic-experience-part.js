@@ -14,17 +14,20 @@ class PKTopicExperiencePart extends LitElement {
 		return {
 			img: { type: String },
 			title: { type: String },
-			subtitle: { type: String }
+			subtitle: { type: String },
+			link: { type: String }
 		};
 	}
 
 	render() {
-		const { img, desc, title, subtitle } = this;
+		const { img, link, title, subtitle } = this;
 		return html`
 			${sharedStyle}
 			<pk-card-new>
 				<pk-card-image>
-					<pk-image src=${img}></pk-image>
+					<a href=${link} target="_blank">
+						<pk-image src=${img}></pk-image>
+					</a>
 				</pk-card-image>
 				<pk-card-footer>
 					<pk-translate slot="title" key=${title}></pk-translate>
