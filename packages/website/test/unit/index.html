@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<title>Tests</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="../../node_modules/mocha/mocha.js"></script>
-		<script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
-	</head>
-	<body>
-		<script>
-			WCT.loadSuites(["./components/pk-app.html"]);
-		</script>
-	</body>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Tests</title>
+	<meta
+	 name="viewport"
+	 content="width=device-width, initial-scale=1"
+	/>
+	<script src="../../node_modules/mocha/mocha.js"></script>
+	<script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
+</head>
+
+<body>
+	<script>
+		WCT.loadSuites([
+			"./components/pk-animate.html",
+			"./components/pk-link.html"
+		]);
+	</script>
+</body>
+
 </html>

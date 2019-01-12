@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<script src="../../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+	<script src="../../../node_modules/source-map-support/browser-source-map-support.js"></script>
+</head>
+
+<body>
+	<script type="module">
+		//
+		import "../header";
+	</script>
+	<test-fixture id="PkLink">
+		<template>
+			<pk-link path="/test">a</pk-link>
+		</template>
+	</test-fixture>
+	<script type="module">
+		import "../../../src/components/pk-link/pk-link.js";
+		//
+		suite("pk-link", function () {
+			let link;
+			setup(() => {
+				link = fixture('PkLink');
+			});
+			test("it should render a link", async () => {
+				await link.updateComplete;
+				assert.isNotNull(link.shadowRoot.querySelector("a"));
+			});
+			test("path is default /", () => {
+				const el = document.createElement("pk-link");
+				assert.equal(el.path, "/");
+			});
+			test("the a tag should have the path as href", async () => {
+				await link.updateComplete;
+				const { pathname } = link.shadowRoot.querySelector("a");
+				assert.equal(pathname, "/test");
+			});
+		});
+	</script>
+</body>
+
+</html>

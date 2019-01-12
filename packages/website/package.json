@@ -20,21 +20,22 @@
 	},
 	"dependencies": {
 		"@polymer/lit-element": "^0.6.5",
-		"@webcomponents/webcomponentsjs": "^2.2.1",
 		"animate.css": "^3.7.0",
 		"backtick-template": "^0.2.0",
 		"pwa-helpers": "^0.9.0",
 		"redux": "^4.0.1",
 		"redux-thunk": "^2.3.0",
 		"reselect": "^4.0.0",
-		"reset-css": "^4.0.1",
 		"showdown": "^1.9.0",
 		"simplebar": "^3.1.1"
 	},
 	"devDependencies": {
+		"@polymer/test-fixture": "^4.0.2",
+		"@webcomponents/webcomponentsjs": "^2.2.3",
 		"chai": "^4.2.0",
 		"mocha": "^5.2.0",
-		"polymer-cli": "^1.9.3",
+		"source-map-support": "^0.5.10",
+		"wct-istanbub": "^0.2.8",
 		"wct-mocha": "^1.0.0"
 	}
 }
