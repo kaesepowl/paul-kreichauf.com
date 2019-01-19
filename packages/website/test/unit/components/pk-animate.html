@@ -21,23 +21,21 @@
 	<script type="module">
 		import "../../../src/components/pk-animate/pk-animate.js";
 		//
-		suite("<pk-animate></pk-animate>", () => {
-			let testElement;
-			setup(() => {
-				testElement = fixture('PkAnimate');
-			});
-			test("it has to wrap another element", async () => {
-				await testElement.updateComplete;
-				assert.isAtLeast(testElement.children.length, 1);
-			});
-			test("can handle animation end event", async () => {
-				await testElement.updateComplete;
-				sinon.spy(testElement, "animationEnd");
-				const animationContainer = testElement.shadowRoot.getElementById("animateContainer");
-				assert.isNotNull(animationContainer);
-				animationContainer.dispatchEvent(new Event("animationend"));
-				assert(testElement.animationEnd.calledOnce, "animationEnd Method has to be called if event triggered");
-			});
+		let testElement;
+		setup(() => {
+			testElement = fixture('PkAnimate');
+		});
+		test("it has to wrap another element", async () => {
+			await testElement.updateComplete;
+			assert.isAtLeast(testElement.children.length, 1);
+		});
+		test("can handle animation end event", async () => {
+			await testElement.updateComplete;
+			sinon.spy(testElement, "animationEnd");
+			const animationContainer = testElement.shadowRoot.getElementById("animateContainer");
+			assert.isNotNull(animationContainer);
+			animationContainer.dispatchEvent(new Event("animationend"));
+			assert(testElement.animationEnd.calledOnce, "animationEnd Method has to be called if event triggered");
 		});
 	</script>
 </body>
